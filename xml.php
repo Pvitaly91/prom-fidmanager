@@ -464,11 +464,13 @@ function parseFeed(string $feedPath): array {
             }
             if ($catId === '') continue;
 
-            // name fallbacks
-            $name = '';
-            if (isset($offer->name))  $name = trim((string)$offer->name);
-            if ($name === '' && isset($offer->model)) $name = trim((string)$offer->model);
-            if ($name === '' && isset($offer->title)) $name = trim((string)$offer->title);
+            // name fallbacks (name_ua = Ukrainian field used by some Prom.ua exports)
+            $name    = '';
+            $nameUa  = isset($offer->name_ua) ? trim((string)$offer->name_ua) : '';
+            if ($nameUa !== '')                             $name = $nameUa;
+            if ($name === '' && isset($offer->name))        $name = trim((string)$offer->name);
+            if ($name === '' && isset($offer->model))       $name = trim((string)$offer->model);
+            if ($name === '' && isset($offer->title))       $name = trim((string)$offer->title);
 
             // url fallbacks
             $url = '';
@@ -492,6 +494,7 @@ function parseFeed(string $feedPath): array {
             $p = [
                 'id' => trim((string)$offer['id']),
                 'name' => $name,
+                'name_ua' => $nameUa,
                 'url' => $url,
                 'price' => $price,
                 'currency' => $currency,
@@ -544,15 +547,16 @@ function buildTree(array &$categories): array {
 
 /**
  * Build the searchable text for a product offer:
- * name + vendor (if any) + description (if any), space-joined, HTML-escaped.
+ * name + name_ua + vendor (if any) + description (if any), space-joined, HTML-escaped.
  *
- * @param  array  $p  Product array with keys: name, vendor, desc (all optional)
+ * @param  array  $p  Product array with keys: name, name_ua, vendor, desc (all optional)
  * @return string     HTML-attribute-safe searchable string
  */
 function offerSearchText(array $p): string
 {
     $parts = array_filter([
         trim((string)($p['name'] ?? '')),
+        trim((string)($p['name_ua'] ?? '')),
         trim((string)($p['vendor'] ?? '')),
         trim((string)($p['desc'] ?? '')),
     ]);
