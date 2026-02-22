@@ -793,8 +793,8 @@ header('Content-Type: text/html; charset=utf-8');
     }
     .thumb-ph { background: #fafafa; }
 
-    .pinfo { min-width: 0; }
-    .plink { color:#0b57d0; text-decoration:none; word-break: break-word; }
+    .pinfo { flex: 1 1 0; min-width: 0; }
+    .plink { display:block; color:#0b57d0; text-decoration:none; word-break: break-word; font-weight:600; }
     .plink:hover { text-decoration:underline; }
     .price { color:#111; font-size: 12px; margin-top: 4px; }
     .pid { color:#999; font-size: 11px; margin-top: 2px; }
