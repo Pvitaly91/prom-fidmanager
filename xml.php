@@ -140,6 +140,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assig
     exit;
 }
 
+// ---- JSON API: bulk assign Kasta category ----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assign_bulk') {
+    header('Content-Type: application/json; charset=utf-8');
+    $offerIdsRaw = trim($_POST['offer_ids'] ?? '');
+    $catId       = (int)($_POST['cat_id'] ?? 0);
+    if ($offerIdsRaw === '' || $catId <= 0) {
+        echo json_encode(['ok' => false, 'error' => 'Missing params']);
+        exit;
+    }
+    $offerIds = array_values(array_filter(array_map('trim', explode(',', $offerIdsRaw))));
+    if (empty($offerIds)) {
+        echo json_encode(['ok' => false, 'error' => 'No offer IDs provided']);
+        exit;
+    }
+    $kastaCatsFile = $baseDir . '/kasta_categories.json';
+    $mappingFile   = $baseDir . '/category_mapping.json';
+    $catsRaw = is_file($kastaCatsFile) ? @file_get_contents($kastaCatsFile) : false;
+    if ($catsRaw === false) {
+        echo json_encode(['ok' => false, 'error' => 'kasta_categories.json not found']);
+        exit;
+    }
+    $cats    = json_decode($catsRaw, true) ?? [];
+    $catById = [];
+    foreach ($cats as $c) { $catById[$c['id']] = $c; }
+    if (!isset($catById[$catId])) {
+        echo json_encode(['ok' => false, 'error' => 'Unknown category id']);
+        exit;
+    }
+    $mapping = [];
+    if (is_file($mappingFile)) {
+        $raw = @file_get_contents($mappingFile);
+        if ($raw !== false && $raw !== '') $mapping = json_decode($raw, true) ?? [];
+    }
+    $cat   = $catById[$catId];
+    $today = date('Y-m-d');
+    foreach ($offerIds as $oid) {
+        $mapping[$oid] = [
+            'kasta_category_id' => $catId,
+            'affiliation'       => $cat['affiliation'],
+            'group'             => $cat['group'],
+            'subgroup'          => $cat['subgroup'],
+            'kind'              => $cat['kind'],
+            'auto_mapped'       => false,
+            'mapped_at'         => $today,
+        ];
+    }
+    try {
+        $jsonOut = json_encode($mapping, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        echo json_encode(['ok' => false, 'error' => 'JSON encode error: ' . $e->getMessage()]);
+        exit;
+    }
+    if (file_put_contents($mappingFile, $jsonOut, LOCK_EX) === false) {
+        echo json_encode(['ok' => false, 'error' => 'Failed to write mapping file']);
+        exit;
+    }
+    echo json_encode(['ok' => true, 'cat' => $cat, 'count' => count($offerIds)], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 // ---- POST: handle file upload / URL fetch / conversion ----
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
@@ -249,6 +309,14 @@ $mapping = [];
 if (is_file($mappingFile) && is_readable($mappingFile)) {
     $raw = @file_get_contents($mappingFile);
     if ($raw !== false && $raw !== '') $mapping = json_decode($raw, true) ?? [];
+}
+
+// Collect which Kasta category IDs are already used in this mapping
+$usedKastaCatIds = [];
+foreach ($mapping as $entry) {
+    if (isset($entry['kasta_category_id'])) {
+        $usedKastaCatIds[(int)$entry['kasta_category_id']] = true;
+    }
 }
 
 function h(string $s): string {
@@ -484,6 +552,7 @@ function renderCategory(
             $pId    = (string)($p['id'] ?? '');
 
             echo '<li class="product">';
+            echo '<label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="' . h($pId) . '"></label>';
             if ($showImages) {
                 if ($pPic !== '') {
                     // thumbnail links to full image
@@ -651,6 +720,24 @@ header('Content-Type: text/html; charset=utf-8');
     .btn-kcat-edit { background:none; border:none; cursor:pointer; padding:1px 4px; font-size:13px; opacity:0.5; }
     .btn-kcat-edit:hover { opacity:1; }
 
+    /* ---- Product checkbox ---- */
+    .product-cb-wrap { flex:0 0 auto; display:flex; align-items:center; padding-top:2px; }
+    .product-cb { width:16px; height:16px; cursor:pointer; accent-color:#1a56a0; }
+    li.product.selected { background:#eef5ff; border-color:#b0c8f0; }
+
+    /* ---- Bulk action bar ---- */
+    #bulk-bar { display:none; position:sticky; bottom:16px; left:0; right:0; z-index:500;
+                background:#1a56a0; color:#fff; border-radius:10px; padding:10px 16px;
+                margin:12px 0; box-shadow:0 4px 16px rgba(0,0,0,.25);
+                align-items:center; gap:10px; flex-wrap:wrap; }
+    #bulk-bar.visible { display:flex; }
+    #bulk-count { font-weight:700; font-size:14px; flex:1; }
+    #bulk-bar .btn-bulk { padding:6px 14px; border:none; border-radius:6px; cursor:pointer; font-size:13px; font-weight:600; }
+    .btn-bulk-assign { background:#fff; color:#1a56a0; }
+    .btn-bulk-assign:hover { background:#e8f3ff; }
+    .btn-bulk-clear { background:rgba(255,255,255,.2); color:#fff; }
+    .btn-bulk-clear:hover { background:rgba(255,255,255,.35); }
+
     /* ---- Category picker modal ---- */
     #cat-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:1000; align-items:center; justify-content:center; }
     #cat-modal-box { background:#fff; border-radius:12px; padding:20px; width:min(540px,95vw); max-height:80vh; display:flex; flex-direction:column; box-shadow:0 8px 32px rgba(0,0,0,.25); }
@@ -663,6 +750,9 @@ header('Content-Type: text/html; charset=utf-8');
     #cat-results li.cat-result-item:hover { background:#f0f6ff; }
     #cat-results li.cat-result-item strong { font-size:13px; color:#111; }
     #cat-results li.cat-result-item small { color:#888; font-size:11px; }
+    #cat-results li.cat-result-item.used { background:#f0fff4; border-left:3px solid #0a7c3c; padding-left:7px; }
+    #cat-results li.cat-result-item.used strong { color:#0a5c2e; }
+    .cat-used-badge { display:inline-block; background:#0a7c3c; color:#fff; border-radius:4px; padding:0 5px; font-size:10px; font-weight:700; margin-left:5px; vertical-align:middle; }
     #cat-modal-footer { display:flex; justify-content:flex-end; margin-top:12px; }
     #cat-modal-footer button { padding:7px 18px; border:none; border-radius:8px; cursor:pointer; font-size:13px; background:#eee; }
     #cat-modal-footer button:hover { background:#ddd; }
@@ -766,6 +856,13 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="pill muted">(у summary: direct / total)</div>
   </div>
 
+  <!-- ===== Bulk action bar ===== -->
+  <div id="bulk-bar" role="toolbar" aria-label="Масова дія">
+    <span id="bulk-count">0 обрано</span>
+    <button class="btn-bulk btn-bulk-assign" type="button" onclick="openBulkPicker()">🏷 Призначити категорію</button>
+    <button class="btn-bulk btn-bulk-clear"  type="button" onclick="deselectAll()">✕ Скасувати вибір</button>
+  </div>
+
   <?php if (!empty($unknownProducts)): ?>
     <details class="cat" open>
       <summary>
@@ -798,6 +895,7 @@ header('Content-Type: text/html; charset=utf-8');
                   $pCur  = (string)($p['currency'] ?? '');
                   ?>
                   <li class="product">
+                    <label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="<?php echo h($pId); ?>"></label>
                     <?php if ($showImages): ?>
                       <?php if ($pPic !== ''): ?>
                         <a class="thumb-wrap" target="_blank" rel="noopener" href="<?php echo h($pPic); ?>" title="Відкрити фото">
@@ -853,12 +951,58 @@ header('Content-Type: text/html; charset=utf-8');
 </div>
 
 <script>
-(function() {
-  var _offerId = null;
-  var _searchTimer = null;
+// Kasta category IDs already used in this feed's mapping (for highlighting)
+var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), JSON_HEX_TAG | JSON_HEX_AMP); ?>);
 
+(function() {
+  var _offerId   = null;   // single-product mode
+  var _offerIds  = null;   // bulk mode (array)
+  var _isBulk    = false;
+  var _searchTimer = null;
+  var _selected  = new Set(); // offer IDs selected via checkboxes
+
+  // ---- Checkbox / selection management ----
+  function updateBulkBar() {
+    var bar   = document.getElementById('bulk-bar');
+    var count = document.getElementById('bulk-count');
+    if (_selected.size > 0) {
+      bar.classList.add('visible');
+      count.textContent = _selected.size + ' обрано';
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+
+  window.deselectAll = function() {
+    _selected.clear();
+    document.querySelectorAll('.product-cb:checked').forEach(function(cb) {
+      cb.checked = false;
+      cb.closest('li.product').classList.remove('selected');
+    });
+    updateBulkBar();
+  };
+
+  // Delegate checkbox change on document (works for dynamically rendered products too)
+  document.addEventListener('change', function(e) {
+    if (!e.target.classList.contains('product-cb')) return;
+    var offerId = e.target.dataset.offer;
+    if (!offerId) return;
+    var li = e.target.closest('li.product');
+    if (e.target.checked) {
+      _selected.add(offerId);
+      if (li) li.classList.add('selected');
+    } else {
+      _selected.delete(offerId);
+      if (li) li.classList.remove('selected');
+    }
+    updateBulkBar();
+  });
+
+  // ---- Open modal ----
   window.openCatPicker = function(offerId, triggerBtn) {
-    _offerId = offerId;
+    _isBulk   = false;
+    _offerId  = offerId;
+    _offerIds = null;
     // Find product name for the modal subtitle
     var product = triggerBtn.closest('li.product');
     var pName = offerId;
@@ -867,15 +1011,31 @@ header('Content-Type: text/html; charset=utf-8');
       if (link) pName = link.textContent;
     }
     document.getElementById('cat-modal-name').textContent = pName;
+    _showModal();
+  };
+
+  window.openBulkPicker = function() {
+    if (_selected.size === 0) return;
+    _isBulk   = true;
+    _offerId  = null;
+    _offerIds = Array.from(_selected);
+    document.getElementById('cat-modal-name').textContent =
+      'Призначити категорію для ' + _selected.size + ' товар(ів)';
+    _showModal();
+  };
+
+  function _showModal() {
     document.getElementById('cat-search').value = '';
     document.getElementById('cat-results').innerHTML = '';
     document.getElementById('cat-modal').style.display = 'flex';
     document.getElementById('cat-search').focus();
-  };
+  }
 
   window.closeCatPicker = function() {
     document.getElementById('cat-modal').style.display = 'none';
-    _offerId = null;
+    _offerId  = null;
+    _offerIds = null;
+    _isBulk   = false;
   };
 
   // Close on backdrop click
@@ -884,9 +1044,10 @@ header('Content-Type: text/html; charset=utf-8');
   });
   // Close on Escape
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeCatPicker();
+    if (e.key === 'Escape' && document.getElementById('cat-modal').style.display === 'flex') closeCatPicker();
   });
 
+  // ---- Search ----
   document.getElementById('cat-search').addEventListener('input', function() {
     clearTimeout(_searchTimer);
     var q = this.value.trim();
@@ -917,8 +1078,17 @@ header('Content-Type: text/html; charset=utf-8');
     cats.forEach(function(c) {
       var li = document.createElement('li');
       li.className = 'cat-result-item';
+      var isUsed = _usedCatIds.has(c.id);
+      if (isUsed) li.classList.add('used');
+
       var strong = document.createElement('strong');
       strong.textContent = c.kind;
+      if (isUsed) {
+        var badge = document.createElement('span');
+        badge.className = 'cat-used-badge';
+        badge.textContent = '✔ використовується';
+        strong.appendChild(badge);
+      }
       var br = document.createElement('br');
       var small = document.createElement('small');
       small.textContent = c.affiliation + ' › ' + c.group + ' › ' + c.subgroup;
@@ -930,24 +1100,57 @@ header('Content-Type: text/html; charset=utf-8');
     });
   }
 
+  // ---- Assign ----
   function assignCategory(cat) {
-    if (!_offerId) return;
+    if (_isBulk) {
+      _assignBulk(cat);
+    } else {
+      _assignSingle(cat);
+    }
+  }
+
+  function _updateRowLabel(offerId, cat) {
+    document.querySelectorAll('.kcat-row[data-offer="' + CSS.escape(offerId) + '"]').forEach(function(row) {
+      var lbl = row.querySelector('.kcat-label');
+      if (lbl) {
+        lbl.className = 'kcat-label';
+        lbl.title = cat.affiliation + ' › ' + cat.group + ' › ' + cat.subgroup;
+        lbl.textContent = cat.kind;
+      }
+    });
+  }
+
+  function _assignSingle(cat) {
     var offerId = _offerId;
+    if (!offerId) return;
     var body = new URLSearchParams({action: 'assign_category', offer_id: offerId, cat_id: cat.id});
     fetch(location.pathname + location.search, {method: 'POST', body: body})
       .then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.ok) {
-          // Update every matching .kcat-row on the page (same product may appear in multiple places)
-          document.querySelectorAll('.kcat-row[data-offer="' + CSS.escape(offerId) + '"]').forEach(function(row) {
-            var lbl = row.querySelector('.kcat-label');
-            if (lbl) {
-              lbl.className = 'kcat-label';
-              lbl.title = cat.affiliation + ' › ' + cat.group + ' › ' + cat.subgroup;
-              lbl.textContent = cat.kind;
-            }
-          });
+          _updateRowLabel(offerId, cat);
+          // Mark this category as used for future searches
+          _usedCatIds.add(cat.id);
           closeCatPicker();
+        } else {
+          alert('Помилка збереження: ' + (data.error || '?'));
+        }
+      })
+      .catch(function() { alert('Мережева помилка'); });
+  }
+
+  function _assignBulk(cat) {
+    var ids = _offerIds;
+    if (!ids || !ids.length) return;
+    var body = new URLSearchParams({action: 'assign_bulk', offer_ids: ids.join(','), cat_id: cat.id});
+    fetch(location.pathname + location.search, {method: 'POST', body: body})
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          ids.forEach(function(oid) { _updateRowLabel(oid, cat); });
+          _usedCatIds.add(cat.id);
+          closeCatPicker();
+          deselectAll();
         } else {
           alert('Помилка збереження: ' + (data.error || '?'));
         }
