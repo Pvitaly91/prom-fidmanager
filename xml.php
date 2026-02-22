@@ -778,7 +778,8 @@ header('Content-Type: text/html; charset=utf-8');
   <title>Категорії та товари з фіда</title>
   <style>
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 16px; line-height: 1.35; }
-    .topbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom: 12px; }
+    #sticky-header { position:sticky; top:0; z-index:600; background:#fff; margin:0 -16px; padding:8px 16px; box-shadow:0 2px 6px rgba(0,0,0,.1); }
+    .topbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
     .topbar .pill { padding: 6px 10px; border: 1px solid #ddd; border-radius: 999px; background: #fafafa; }
     .topbar a { color: inherit; text-decoration: none; }
     .topbar a:hover { text-decoration: underline; }
@@ -878,7 +879,7 @@ header('Content-Type: text/html; charset=utf-8');
     .btn-bulk-clear:hover { background:rgba(255,255,255,.35); }
 
     /* ---- Live search bar ---- */
-    .live-search-bar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+    .live-search-bar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:4px; }
     .ls-group { display:flex; align-items:center; gap:4px; background:#fff; border:1px solid #ccd; border-radius:8px; padding:4px 8px; flex:1; min-width:220px; }
     .ls-group:focus-within { border-color:#1a56a0; box-shadow:0 0 0 2px rgba(26,86,160,.15); }
     .ls-icon { font-size:14px; }
@@ -1031,6 +1032,7 @@ header('Content-Type: text/html; charset=utf-8');
   </script>
 
 <?php if (!$feedError): ?>
+  <div id="sticky-header">
   <div class="topbar">
     <div class="pill"><strong>Файл:</strong> <?php echo h(basename($feedPath)); ?></div>
     <div class="pill"><strong>Категорій:</strong> <?php echo (int)$catsCount; ?></div>
@@ -1047,13 +1049,6 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="pill muted">(у summary: direct / total)</div>
   </div>
 
-  <!-- ===== Bulk action bar ===== -->
-  <div id="bulk-bar" role="toolbar" aria-label="Масова дія">
-    <span id="bulk-count">0 обрано</span>
-    <button class="btn-bulk btn-bulk-assign" type="button" onclick="openBulkPicker()">🏷 Призначити категорію</button>
-    <button class="btn-bulk btn-bulk-clear"  type="button" onclick="deselectAll()">✕ Скасувати вибір</button>
-  </div>
-
   <!-- ===== Live search bar ===== -->
   <div class="live-search-bar">
     <div class="ls-group">
@@ -1067,6 +1062,14 @@ header('Content-Type: text/html; charset=utf-8');
       <button class="ls-clear" type="button" onclick="clearFilter('filter-product')" title="Очистити">×</button>
     </div>
     <span id="filter-count" class="ls-count"></span>
+  </div>
+  </div><!-- /#sticky-header -->
+
+  <!-- ===== Bulk action bar ===== -->
+  <div id="bulk-bar" role="toolbar" aria-label="Масова дія">
+    <span id="bulk-count">0 обрано</span>
+    <button class="btn-bulk btn-bulk-assign" type="button" onclick="openBulkPicker()">🏷 Призначити категорію</button>
+    <button class="btn-bulk btn-bulk-clear"  type="button" onclick="deselectAll()">✕ Скасувати вибір</button>
   </div>
 
   <!-- ===== View tabs ===== -->
