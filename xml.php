@@ -56,6 +56,90 @@ function isPublicUrl(string $url): bool
     return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false;
 }
 
+// ---- JSON API: search Kasta categories ----
+if (isset($_GET['api']) && $_GET['api'] === 'categories') {
+    header('Content-Type: application/json; charset=utf-8');
+    $q      = mb_strtolower(trim($_GET['q'] ?? ''), 'UTF-8');
+    $qWords = $q !== '' ? preg_split('/\s+/u', $q, -1, PREG_SPLIT_NO_EMPTY) : [];
+    $file   = $baseDir . '/kasta_categories.json';
+    if (!is_file($file)) {
+        http_response_code(500);
+        echo json_encode(['error' => 'kasta_categories.json not found']);
+        exit;
+    }
+    $raw  = file_get_contents($file);
+    $cats = $raw !== false ? (json_decode($raw, true) ?? []) : [];
+    $results = [];
+    foreach ($cats as $cat) {
+        $text = mb_strtolower(
+            implode(' ', [$cat['affiliation'], $cat['group'], $cat['subgroup'], $cat['kind']]),
+            'UTF-8'
+        );
+        $match = true;
+        foreach ($qWords as $w) {
+            if (mb_strpos($text, $w, 0, 'UTF-8') === false) { $match = false; break; }
+        }
+        if ($match) {
+            $results[] = $cat;
+            if (count($results) >= 20) break;
+        }
+    }
+    echo json_encode($results, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// ---- JSON API: assign Kasta category to offer ----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assign_category') {
+    header('Content-Type: application/json; charset=utf-8');
+    $offerId = trim($_POST['offer_id'] ?? '');
+    $catId   = (int)($_POST['cat_id'] ?? 0);
+    if ($offerId === '' || $catId <= 0) {
+        echo json_encode(['ok' => false, 'error' => 'Missing params']);
+        exit;
+    }
+    $kastaCatsFile = $baseDir . '/kasta_categories.json';
+    $mappingFile   = $baseDir . '/category_mapping.json';
+    $catsRaw = is_file($kastaCatsFile) ? @file_get_contents($kastaCatsFile) : false;
+    if ($catsRaw === false) {
+        echo json_encode(['ok' => false, 'error' => 'kasta_categories.json not found']);
+        exit;
+    }
+    $cats    = json_decode($catsRaw, true) ?? [];
+    $catById = [];
+    foreach ($cats as $c) { $catById[$c['id']] = $c; }
+    if (!isset($catById[$catId])) {
+        echo json_encode(['ok' => false, 'error' => 'Unknown category id']);
+        exit;
+    }
+    $mapping = [];
+    if (is_file($mappingFile)) {
+        $raw = @file_get_contents($mappingFile);
+        if ($raw !== false && $raw !== '') $mapping = json_decode($raw, true) ?? [];
+    }
+    $cat = $catById[$catId];
+    $mapping[$offerId] = [
+        'kasta_category_id' => $catId,
+        'affiliation'       => $cat['affiliation'],
+        'group'             => $cat['group'],
+        'subgroup'          => $cat['subgroup'],
+        'kind'              => $cat['kind'],
+        'auto_mapped'       => false,
+        'mapped_at'         => date('Y-m-d'),
+    ];
+    try {
+        $jsonOut = json_encode($mapping, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        echo json_encode(['ok' => false, 'error' => 'JSON encode error: ' . $e->getMessage()]);
+        exit;
+    }
+    if (file_put_contents($mappingFile, $jsonOut, LOCK_EX) === false) {
+        echo json_encode(['ok' => false, 'error' => 'Failed to write mapping file']);
+        exit;
+    }
+    echo json_encode(['ok' => true, 'cat' => $cat], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 // ---- POST: handle file upload / URL fetch / conversion ----
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
@@ -158,6 +242,14 @@ $availableXml = array_values(array_filter(
     array_map('basename', glob($baseDir . '/*.xml') ?: []),
     fn($f) => !in_array($f, [UPLOAD_DEST, URL_DEST], true)
 ));
+
+// Load category mapping for display and editing
+$mappingFile = $baseDir . '/category_mapping.json';
+$mapping = [];
+if (is_file($mappingFile) && is_readable($mappingFile)) {
+    $raw = @file_get_contents($mappingFile);
+    if ($raw !== false && $raw !== '') $mapping = json_decode($raw, true) ?? [];
+}
 
 function h(string $s): string {
     return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -322,12 +414,36 @@ function computeTotals(array $rootIds, array $categories, array $productsByCat):
     return $memo;
 }
 
+/**
+ * Render the Kasta-category assignment badge + edit button for a single offer.
+ * @param string $pId    offer id
+ * @param array  $mapping  full category_mapping data
+ */
+function renderOfferMapping(string $pId, array $mapping): void
+{
+    $m = $mapping[$pId] ?? null;
+    echo '<div class="kcat-row" data-offer="' . h($pId) . '">';
+    echo '🏷 ';
+    if ($m) {
+        $auto = !empty($m['auto_mapped']) ? ' <span class="kcat-auto" title="Автоматично призначено">авто</span>' : '';
+        echo '<span class="kcat-label" title="' . h($m['affiliation'] . ' › ' . $m['group'] . ' › ' . $m['subgroup']) . '">'
+           . h($m['kind']) . $auto . '</span>';
+    } else {
+        echo '<span class="kcat-label kcat-none">— не призначено —</span>';
+    }
+    echo ' <button class="btn-kcat-edit" type="button"'
+       . ' onclick="openCatPicker(' . htmlspecialchars(json_encode($pId, JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') . ',this)"'
+       . ' title="Змінити категорію Каста">✏️</button>';
+    echo '</div>';
+}
+
 /** Render category subtree. */
 function renderCategory(
     int|string $id,
     array $categories,
     array $productsByCat,
     array $totals,
+    array $mapping,
     int $maxPerCat,
     bool $showImages,
     int $depth = 0
@@ -391,6 +507,7 @@ function renderCategory(
             if ($pId !== '') {
                 echo '<div class="pid">offer#' . h($pId) . '</div>';
             }
+            renderOfferMapping($pId, $mapping);
             echo '</div>';
             echo '</li>';
         }
@@ -409,7 +526,7 @@ function renderCategory(
     if ($hasChildren) {
         echo '<div class="children">';
         foreach ($cat['children'] as $childId) {
-            renderCategory($childId, $categories, $productsByCat, $totals, $maxPerCat, $showImages, $depth + 1);
+            renderCategory($childId, $categories, $productsByCat, $totals, $mapping, $maxPerCat, $showImages, $depth + 1);
         }
         echo '</div>';
     }
@@ -524,6 +641,31 @@ header('Content-Type: text/html; charset=utf-8');
     .btn-convert:hover { background:#085e2d; }
     .msg-error   { color:#a00; background:#fff0f0; border:1px solid #fcc; border-radius:6px; padding:6px 10px; font-size:13px; margin-top:8px; }
     .msg-success { color:#0a7c3c; background:#f0fff4; border:1px solid #b2dfcc; border-radius:6px; padding:6px 10px; font-size:13px; margin-top:8px; }
+
+    /* ---- Kasta category assignment widget ---- */
+    .kcat-row { display:flex; align-items:center; gap:5px; margin-top:4px; font-size:12px; flex-wrap:wrap; }
+    .kcat-label { color:#555; cursor:default; }
+    .kcat-label:not(.kcat-none) { color:#0a5c2e; font-weight:600; }
+    .kcat-none { color:#aaa; font-style:italic; }
+    .kcat-auto { display:inline-block; background:#e8f3ff; color:#1a56a0; border-radius:4px; padding:0 4px; font-size:10px; font-weight:600; vertical-align:middle; margin-left:3px; }
+    .btn-kcat-edit { background:none; border:none; cursor:pointer; padding:1px 4px; font-size:13px; opacity:0.5; }
+    .btn-kcat-edit:hover { opacity:1; }
+
+    /* ---- Category picker modal ---- */
+    #cat-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:1000; align-items:center; justify-content:center; }
+    #cat-modal-box { background:#fff; border-radius:12px; padding:20px; width:min(540px,95vw); max-height:80vh; display:flex; flex-direction:column; box-shadow:0 8px 32px rgba(0,0,0,.25); }
+    #cat-modal-box h3 { margin:0 0 12px; font-size:16px; color:#1a56a0; }
+    #cat-modal-name { font-size:13px; color:#555; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    #cat-search { width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #bbc; border-radius:8px; font-size:14px; outline:none; }
+    #cat-search:focus { border-color:#1a56a0; }
+    #cat-results { flex:1; overflow-y:auto; margin-top:8px; list-style:none; padding:0; }
+    #cat-results li.cat-result-item { padding:8px 10px; border-radius:8px; cursor:pointer; border-bottom:1px solid #f0f0f0; }
+    #cat-results li.cat-result-item:hover { background:#f0f6ff; }
+    #cat-results li.cat-result-item strong { font-size:13px; color:#111; }
+    #cat-results li.cat-result-item small { color:#888; font-size:11px; }
+    #cat-modal-footer { display:flex; justify-content:flex-end; margin-top:12px; }
+    #cat-modal-footer button { padding:7px 18px; border:none; border-radius:8px; cursor:pointer; font-size:13px; background:#eee; }
+    #cat-modal-footer button:hover { background:#ddd; }
   </style>
 </head>
 <body>
@@ -677,6 +819,7 @@ header('Content-Type: text/html; charset=utf-8');
                       <?php if ($pId !== ''): ?>
                         <div class="pid">offer#<?php echo h($pId); ?></div>
                       <?php endif; ?>
+                      <?php renderOfferMapping($pId, $mapping); ?>
                     </div>
                   </li>
               <?php } ?>
@@ -691,9 +834,128 @@ header('Content-Type: text/html; charset=utf-8');
     <p>Не знайдено категорій у фіді.</p>
   <?php else: ?>
     <?php foreach ($rootIds as $rid): ?>
-      <?php renderCategory($rid, $categories, $productsByCat, $totals, $maxPerCat, $showImages, 0); ?>
+      <?php renderCategory($rid, $categories, $productsByCat, $totals, $mapping, $maxPerCat, $showImages, 0); ?>
     <?php endforeach; ?>
   <?php endif; ?>
 <?php endif; ?>
+
+<!-- ===== Kasta category picker modal ===== -->
+<div id="cat-modal" role="dialog" aria-modal="true" aria-labelledby="cat-modal-title">
+  <div id="cat-modal-box">
+    <h3 id="cat-modal-title">Призначити категорію Каста</h3>
+    <div id="cat-modal-name"></div>
+    <input id="cat-search" type="search" placeholder="Пошук категорії (напр.: колектор, arduino, зарядний...)" autocomplete="off">
+    <ul id="cat-results"></ul>
+    <div id="cat-modal-footer">
+      <button type="button" onclick="closeCatPicker()">Скасувати</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var _offerId = null;
+  var _searchTimer = null;
+
+  window.openCatPicker = function(offerId, triggerBtn) {
+    _offerId = offerId;
+    // Find product name for the modal subtitle
+    var product = triggerBtn.closest('li.product');
+    var pName = offerId;
+    if (product) {
+      var link = product.querySelector('.plink');
+      if (link) pName = link.textContent;
+    }
+    document.getElementById('cat-modal-name').textContent = pName;
+    document.getElementById('cat-search').value = '';
+    document.getElementById('cat-results').innerHTML = '';
+    document.getElementById('cat-modal').style.display = 'flex';
+    document.getElementById('cat-search').focus();
+  };
+
+  window.closeCatPicker = function() {
+    document.getElementById('cat-modal').style.display = 'none';
+    _offerId = null;
+  };
+
+  // Close on backdrop click
+  document.getElementById('cat-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeCatPicker();
+  });
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCatPicker();
+  });
+
+  document.getElementById('cat-search').addEventListener('input', function() {
+    clearTimeout(_searchTimer);
+    var q = this.value.trim();
+    if (q.length < 2) {
+      document.getElementById('cat-results').innerHTML = '<li style="color:#aaa;padding:8px;list-style:none">Введіть мінімум 2 символи…</li>';
+      return;
+    }
+    _searchTimer = setTimeout(function() { doSearch(q); }, 300);
+  });
+
+  function doSearch(q) {
+    document.getElementById('cat-results').innerHTML = '<li style="color:#aaa;padding:8px;list-style:none">Пошук…</li>';
+    fetch('?api=categories&q=' + encodeURIComponent(q))
+      .then(function(r) { return r.json(); })
+      .then(renderResults)
+      .catch(function() {
+        document.getElementById('cat-results').innerHTML = '<li style="color:#a00;padding:8px;list-style:none">Помилка запиту</li>';
+      });
+  }
+
+  function renderResults(cats) {
+    var ul = document.getElementById('cat-results');
+    ul.innerHTML = '';
+    if (!Array.isArray(cats) || !cats.length) {
+      ul.innerHTML = '<li style="color:#aaa;padding:8px;list-style:none">Нічого не знайдено</li>';
+      return;
+    }
+    cats.forEach(function(c) {
+      var li = document.createElement('li');
+      li.className = 'cat-result-item';
+      var strong = document.createElement('strong');
+      strong.textContent = c.kind;
+      var br = document.createElement('br');
+      var small = document.createElement('small');
+      small.textContent = c.affiliation + ' › ' + c.group + ' › ' + c.subgroup;
+      li.appendChild(strong);
+      li.appendChild(br);
+      li.appendChild(small);
+      li.addEventListener('click', function() { assignCategory(c); });
+      ul.appendChild(li);
+    });
+  }
+
+  function assignCategory(cat) {
+    if (!_offerId) return;
+    var offerId = _offerId;
+    var body = new URLSearchParams({action: 'assign_category', offer_id: offerId, cat_id: cat.id});
+    fetch(location.pathname + location.search, {method: 'POST', body: body})
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.ok) {
+          // Update every matching .kcat-row on the page (same product may appear in multiple places)
+          document.querySelectorAll('.kcat-row[data-offer="' + CSS.escape(offerId) + '"]').forEach(function(row) {
+            var lbl = row.querySelector('.kcat-label');
+            if (lbl) {
+              lbl.className = 'kcat-label';
+              lbl.title = cat.affiliation + ' › ' + cat.group + ' › ' + cat.subgroup;
+              lbl.textContent = cat.kind;
+            }
+          });
+          closeCatPicker();
+        } else {
+          alert('Помилка збереження: ' + (data.error || '?'));
+        }
+      })
+      .catch(function() { alert('Мережева помилка'); });
+  }
+
+}());
+</script>
 </body>
 </html>
