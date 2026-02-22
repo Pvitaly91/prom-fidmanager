@@ -44,7 +44,13 @@ if (PHP_SAPI === 'cli') {
     $previewMode = false;
     $forceRemap  = in_array('--remap', $argv, true);
 } else {
-    $inputName   = isset($_GET['file']) ? basename((string)$_GET['file']) : 'products_feed.xml';
+    // basename() strips any directory traversal; only allow .xml files in $baseDir
+    $rawName   = isset($_GET['file']) ? basename((string)$_GET['file']) : 'products_feed.xml';
+    // Restrict to .xml extension to prevent loading of config/mapping files via browser
+    if (!preg_match('/\.xml$/i', $rawName)) {
+        $rawName = 'products_feed.xml';
+    }
+    $inputName   = $rawName;
     $inputFile   = $baseDir . '/' . $inputName;
     $outputFile  = $baseDir . '/kasta.xml';
     $previewMode = !empty($_GET['preview']);
