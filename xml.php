@@ -484,6 +484,11 @@ function parseFeed(string $feedPath): array {
             $price = isset($offer->price) ? trim((string)$offer->price) : '';
             $currency = isset($offer->currencyId) ? trim((string)$offer->currencyId) : '';
 
+            $vendor = isset($offer->vendor) ? trim((string)$offer->vendor) : '';
+            $desc   = isset($offer->description)
+                ? trim(preg_replace('/\s+/', ' ', strip_tags((string)$offer->description)))
+                : '';
+
             $p = [
                 'id' => trim((string)$offer['id']),
                 'name' => $name,
@@ -491,6 +496,8 @@ function parseFeed(string $feedPath): array {
                 'price' => $price,
                 'currency' => $currency,
                 'picture' => $picture,
+                'vendor' => $vendor,
+                'desc'   => $desc,
             ];
 
             $productsByCat[$catId][] = $p;
@@ -536,7 +543,23 @@ function buildTree(array &$categories): array {
 }
 
 /**
- * Compute total products in category subtree (direct + children), memoized.
+ * Build the searchable text for a product offer:
+ * name + vendor (if any) + description (if any), space-joined, HTML-escaped.
+ *
+ * @param  array  $p  Product array with keys: name, vendor, desc (all optional)
+ * @return string     HTML-attribute-safe searchable string
+ */
+function offerSearchText(array $p): string
+{
+    $parts = array_filter([
+        trim((string)($p['name'] ?? '')),
+        trim((string)($p['vendor'] ?? '')),
+        trim((string)($p['desc'] ?? '')),
+    ]);
+    return h(implode(' ', $parts));
+}
+
+/**
  * IMPORTANT: allow int|string ids (because numeric-string keys become int in PHP arrays)
  */
 function computeTotals(array $rootIds, array $categories, array $productsByCat): array {
@@ -639,8 +662,9 @@ function renderCategory(
             $pPic   = (string)($p['picture'] ?? '');
             $pId    = (string)($p['id'] ?? '');
             $isExclOffer = isset($excludedOfferSet[$pId]);
+            $pSearch = offerSearchText($p);
 
-            echo '<li class="product' . ($isExclOffer ? ' excl-item' : '') . '">';
+            echo '<li class="product' . ($isExclOffer ? ' excl-item' : '') . '" data-search="' . $pSearch . '">';
             echo '<label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="' . h($pId) . '"></label>';
             if ($showImages) {
                 if ($pPic !== '') {
@@ -1091,8 +1115,9 @@ header('Content-Type: text/html; charset=utf-8');
                   $pPrice= (string)($p['price'] ?? '');
                   $pCur  = (string)($p['currency'] ?? '');
                   $isExclP = isset($excludedOfferSet[$pId]);
+                  $pSearch = offerSearchText($p);
                   ?>
-                  <li class="product<?php echo $isExclP ? ' excl-item' : ''; ?>">
+                  <li class="product<?php echo $isExclP ? ' excl-item' : ''; ?>" data-search="<?php echo $pSearch; ?>">
                     <label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="<?php echo h($pId); ?>"></label>
                     <?php if ($showImages): ?>
                       <?php if ($pPic !== ''): ?>
@@ -1661,9 +1686,8 @@ window.showView = function(name, btn) {
     // ---- Filter individual products ----
     if (prodQ) {
       viewAll.querySelectorAll('li.product').forEach(function(li) {
-        var link = li.querySelector('.plink');
-        var name = link ? link.textContent.toLowerCase() : '';
-        if (name.indexOf(prodQ) === -1) li.classList.add('filter-hidden');
+        var searchText = (li.dataset.search || '').toLowerCase();
+        if (searchText.indexOf(prodQ) === -1) li.classList.add('filter-hidden');
       });
     }
 
