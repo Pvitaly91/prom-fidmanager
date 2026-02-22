@@ -738,6 +738,18 @@ header('Content-Type: text/html; charset=utf-8');
     .btn-bulk-clear { background:rgba(255,255,255,.2); color:#fff; }
     .btn-bulk-clear:hover { background:rgba(255,255,255,.35); }
 
+    /* ---- Live search bar ---- */
+    .live-search-bar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+    .ls-group { display:flex; align-items:center; gap:4px; background:#fff; border:1px solid #ccd; border-radius:8px; padding:4px 8px; flex:1; min-width:220px; }
+    .ls-group:focus-within { border-color:#1a56a0; box-shadow:0 0 0 2px rgba(26,86,160,.15); }
+    .ls-icon { font-size:14px; }
+    .ls-group input[type=search] { border:none; outline:none; flex:1; font-size:13px; min-width:120px; background:transparent; }
+    .ls-group input[type=search]::-webkit-search-cancel-button { display:none; }
+    .ls-clear { background:none; border:none; cursor:pointer; color:#bbb; font-size:18px; line-height:1; padding:0 2px; font-weight:400; }
+    .ls-clear:hover { color:#555; }
+    .ls-count { font-size:12px; color:#666; white-space:nowrap; }
+    .filter-hidden { display:none !important; }
+
     /* ---- Category picker modal ---- */
     #cat-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:1000; align-items:center; justify-content:center; }
     #cat-modal-box { background:#fff; border-radius:12px; padding:20px; width:min(540px,95vw); max-height:80vh; display:flex; flex-direction:column; box-shadow:0 8px 32px rgba(0,0,0,.25); }
@@ -861,6 +873,21 @@ header('Content-Type: text/html; charset=utf-8');
     <span id="bulk-count">0 обрано</span>
     <button class="btn-bulk btn-bulk-assign" type="button" onclick="openBulkPicker()">🏷 Призначити категорію</button>
     <button class="btn-bulk btn-bulk-clear"  type="button" onclick="deselectAll()">✕ Скасувати вибір</button>
+  </div>
+
+  <!-- ===== Live search bar ===== -->
+  <div class="live-search-bar">
+    <div class="ls-group">
+      <span class="ls-icon">📂</span>
+      <input id="filter-cat" type="search" placeholder="Пошук по назві категорії…" autocomplete="off" oninput="scheduleFilter()">
+      <button class="ls-clear" type="button" onclick="clearFilter('filter-cat')" title="Очистити">×</button>
+    </div>
+    <div class="ls-group">
+      <span class="ls-icon">🔍</span>
+      <input id="filter-product" type="search" placeholder="Пошук по назві товару…" autocomplete="off" oninput="scheduleFilter()">
+      <button class="ls-clear" type="button" onclick="clearFilter('filter-product')" title="Очистити">×</button>
+    </div>
+    <span id="filter-count" class="ls-count"></span>
   </div>
 
   <?php if (!empty($unknownProducts)): ?>
@@ -1158,6 +1185,89 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
       .catch(function() { alert('Мережева помилка'); });
   }
 
+}());
+</script>
+
+<script>
+// ---- Live feed search (category name + product name) ----
+(function() {
+  var _filterTimer  = null;
+  var _savedOpen    = null; // Map<details, boolean> — saved before first filter
+
+  window.scheduleFilter = function() {
+    clearTimeout(_filterTimer);
+    _filterTimer = setTimeout(applyFilters, 180);
+  };
+
+  window.clearFilter = function(id) {
+    document.getElementById(id).value = '';
+    scheduleFilter();
+    document.getElementById(id).focus();
+  };
+
+  function applyFilters() {
+    var catQ  = document.getElementById('filter-cat').value.trim().toLowerCase();
+    var prodQ = document.getElementById('filter-product').value.trim().toLowerCase();
+    var active = catQ !== '' || prodQ !== '';
+
+    // ---- Save open state on first activation ----
+    if (active && !_savedOpen) {
+      _savedOpen = new Map();
+      document.querySelectorAll('details.cat').forEach(function(d) {
+        _savedOpen.set(d, d.open);
+      });
+    }
+
+    // ---- Reset visibility ----
+    document.querySelectorAll('li.product').forEach(function(li) { li.classList.remove('filter-hidden'); });
+    document.querySelectorAll('details.cat').forEach(function(d) { d.classList.remove('filter-hidden'); });
+
+    if (!active) {
+      // Restore saved open states
+      if (_savedOpen) {
+        _savedOpen.forEach(function(wasOpen, d) { d.open = wasOpen; });
+        _savedOpen = null;
+      }
+      document.getElementById('filter-count').textContent = '';
+      return;
+    }
+
+    // ---- Filter individual products ----
+    if (prodQ) {
+      document.querySelectorAll('li.product').forEach(function(li) {
+        var link = li.querySelector('.plink');
+        var name = link ? link.textContent.toLowerCase() : '';
+        if (name.indexOf(prodQ) === -1) li.classList.add('filter-hidden');
+      });
+    }
+
+    // ---- Filter categories (process deepest first so parents see children's state) ----
+    // Show a category if: (its name matches AND it has visible content or no product filter)
+    //   OR it has a visible child category (parent kept visible by matching descendant)
+    var allCats = document.querySelectorAll('details.cat');
+    for (var i = allCats.length - 1; i >= 0; i--) {
+      var d = allCats[i];
+      var nameEl = d.querySelector(':scope > summary > .cat-name');
+      var catName = nameEl ? nameEl.textContent.toLowerCase() : '';
+      var catMatch = !catQ || catName.indexOf(catQ) !== -1;
+
+      var hasVisibleProduct = !!d.querySelector('li.product:not(.filter-hidden)');
+      var hasVisibleChild   = !!d.querySelector(':scope > div.children > details.cat:not(.filter-hidden)');
+
+      var show = (catMatch && (!prodQ || hasVisibleProduct)) || hasVisibleChild;
+      if (!show) {
+        d.classList.add('filter-hidden');
+      } else {
+        d.open = true; // expand matched categories
+      }
+    }
+
+    // ---- Update result count ----
+    var visProd = document.querySelectorAll('li.product:not(.filter-hidden)').length;
+    var visCat  = document.querySelectorAll('details.cat:not(.filter-hidden)').length;
+    document.getElementById('filter-count').textContent =
+      visCat + ' кат. / ' + visProd + ' товарів';
+  }
 }());
 </script>
 </body>
