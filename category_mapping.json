@@ -1,0 +1,3458 @@
+{
+    "2676735183": {
+        "kasta_category_id": 3596,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "клапан випускний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2676973200": {
+        "kasta_category_id": 3037,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автокосметика",
+        "kind": "засоби для коліс",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2676981296": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2676986836": {
+        "kasta_category_id": 1605,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "болти для кріплення номеру",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2676996103": {
+        "kasta_category_id": 8409,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "ручка-стабілізатор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2677788507": {
+        "kasta_category_id": 7838,
+        "affiliation": "послуги для техніки",
+        "group": "послуги для техніки",
+        "subgroup": "послуги для техніки",
+        "kind": "послуга налаштування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2677794762": {
+        "kasta_category_id": 3002,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автохімія",
+        "kind": "засіб для захисту від іржі",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2677802593": {
+        "kasta_category_id": 285,
+        "affiliation": "дім",
+        "group": "колекціонування",
+        "subgroup": "банери, гірлянди, підвіски, помпони",
+        "kind": "альбом для монет і банкнот",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2677808460": {
+        "kasta_category_id": 3871,
+        "affiliation": "дівчаткам",
+        "group": "аксесуари",
+        "subgroup": "блузи і туніки",
+        "kind": "комплект",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2691969281": {
+        "kasta_category_id": 8409,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "ручка-стабілізатор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2737174973": {
+        "kasta_category_id": 1763,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "підвіска автомобіля",
+        "kind": "важіль підвіски",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2737177986": {
+        "kasta_category_id": 2446,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "металопрокат",
+        "kind": "двотаврова балка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2737236590": {
+        "kasta_category_id": 7261,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "кузов авто",
+        "kind": "передня панель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2737239455": {
+        "kasta_category_id": 8275,
+        "affiliation": "жінкам",
+        "group": "косметика і парфюмерія",
+        "subgroup": "інструменти по догляду за нігтями",
+        "kind": "розпірка педикюрная",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2753579761": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2769871320": {
+        "kasta_category_id": 2886,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "корпусні частини для телефонів",
+        "kind": "задня кришка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2769872049": {
+        "kasta_category_id": 3037,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автокосметика",
+        "kind": "засоби для коліс",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2769873744": {
+        "kasta_category_id": 8408,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "аксесуари та запчастини для плит і духовок",
+        "kind": "ручка регулювання для плити",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2769874227": {
+        "kasta_category_id": 1763,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "підвіска автомобіля",
+        "kind": "важіль підвіски",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2769874541": {
+        "kasta_category_id": 6429,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоаксесуари",
+        "kind": "набір",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2800833159": {
+        "kasta_category_id": 6049,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "автофільтри",
+        "kind": "масляний фільтр",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2800837552": {
+        "kasta_category_id": 2063,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "підготовка та подача повітря",
+        "kind": "впускний колектор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2801731559": {
+        "kasta_category_id": 1679,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоаксесуари",
+        "kind": "бризковики автомобільні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2801753512": {
+        "kasta_category_id": 10219,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "запчастини для двигуна",
+        "kind": "шестерня колінвалу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2803431388": {
+        "kasta_category_id": 8183,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "решітка радіатора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810691840": {
+        "kasta_category_id": 1763,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "підвіска автомобіля",
+        "kind": "важіль підвіски",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810703096": {
+        "kasta_category_id": 8409,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "ручка-стабілізатор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810707248": {
+        "kasta_category_id": 8409,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "ручка-стабілізатор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810722607": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810726068": {
+        "kasta_category_id": 2968,
+        "affiliation": "дітям",
+        "group": "іграшки та ігри",
+        "subgroup": "комплектуючі для радіокерованих моделей",
+        "kind": "запчастини підвіски",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810782741": {
+        "kasta_category_id": 5,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "гарнітури",
+        "kind": "bluetooth гарнітура",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810823307": {
+        "kasta_category_id": 8906,
+        "affiliation": "дівчаткам",
+        "group": "одяг",
+        "subgroup": "спортивні костюми та комплекти",
+        "kind": "спортивна форма",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2810823868": {
+        "kasta_category_id": 4070,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "трансмісія та зчеплення авто",
+        "kind": "комплектуючі коробки передач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2830601103": {
+        "kasta_category_id": 2996,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автохімія",
+        "kind": "засіб для видалення подряпин",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2830615921": {
+        "kasta_category_id": 10096,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "чохли",
+        "kind": "чохол",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2830621719": {
+        "kasta_category_id": 7041,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "інше",
+        "kind": "охолоджувач для смартфона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831028096": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831076696": {
+        "kasta_category_id": 1762,
+        "affiliation": "дім",
+        "group": "сад, город",
+        "subgroup": "садовий інвентар",
+        "kind": "важіль для валки дерев",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831089607": {
+        "kasta_category_id": 4436,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "аксесуари та запчастини для соковижималок",
+        "kind": "кришка корпусу для соковижималок",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831129800": {
+        "kasta_category_id": 6998,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомобільні органайзера",
+        "kind": "органайзер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831137293": {
+        "kasta_category_id": 1335,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомобільні органайзера",
+        "kind": "багажник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831143026": {
+        "kasta_category_id": 4457,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "аксесуари",
+        "kind": "кріплення для ліхтарів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831158075": {
+        "kasta_category_id": 4445,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "вихлопна система",
+        "kind": "кріплення глушника",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831158091": {
+        "kasta_category_id": 9662,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "клейкі речовини і герметики",
+        "kind": "універсальна стрічка клейка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831200079": {
+        "kasta_category_id": 4029,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "комплектуючі для водонагрівачів і бойлерів",
+        "kind": "комплект для підключення",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2831200126": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2835564299": {
+        "kasta_category_id": 10110,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "чохол для екшн-камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2835595612": {
+        "kasta_category_id": 10069,
+        "affiliation": "воєнторг",
+        "group": "тактичне спорядження",
+        "subgroup": "засоби для маскування",
+        "kind": "чехол на шолом",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2835635663": {
+        "kasta_category_id": 7978,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "профіль для світлодіодної стрічки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2835635795": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2843050252": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2843053988": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848134235": {
+        "kasta_category_id": 8359,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "елементи захисту",
+        "kind": "рукавички для ремонту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848151333": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848152926": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848162501": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848168526": {
+        "kasta_category_id": 1455,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "кермове керування",
+        "kind": "бачок гідропідсилювача керма",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848179715": {
+        "kasta_category_id": 9663,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомастила",
+        "kind": "універсальне масло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848181887": {
+        "kasta_category_id": 7679,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "автофільтри",
+        "kind": "повітряний фільтр",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848185006": {
+        "kasta_category_id": 9282,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "командні види спорту",
+        "subgroup": "настільний теніс",
+        "kind": "тенісний стіл",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848197251": {
+        "kasta_category_id": 7392,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "мережеве обладнання",
+        "subgroup": "маршрутизатори",
+        "kind": "підсилювач сигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848202196": {
+        "kasta_category_id": 5,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "гарнітури",
+        "kind": "bluetooth гарнітура",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848217199": {
+        "kasta_category_id": 3432,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "карти пам'яті",
+        "kind": "карта пам'яті",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2848229952": {
+        "kasta_category_id": 9189,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "таймери та реле часу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2850861884": {
+        "kasta_category_id": 8177,
+        "affiliation": "побутова техніка",
+        "group": "кліматична техніка",
+        "subgroup": "аксесуари та запчастини для вентиляторів",
+        "kind": "решітка для вентилятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851261777": {
+        "kasta_category_id": 4463,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "фітнес та аеробіка",
+        "subgroup": "тренувальні петлі",
+        "kind": "кріплення для петель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851264764": {
+        "kasta_category_id": 6546,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "чистячі засоби",
+        "kind": "набір для чищення електроніки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851266966": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851270252": {
+        "kasta_category_id": 6518,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "аксесуари для плит і пальників",
+        "kind": "набір для підключення до балона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851275417": {
+        "kasta_category_id": 9252,
+        "affiliation": "краса і здоров'я",
+        "group": "обладнання для тату",
+        "subgroup": "витратні матеріали для тату",
+        "kind": "тату-наконечники",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851277776": {
+        "kasta_category_id": 9664,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "універсальний пульт",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851297918": {
+        "kasta_category_id": 3591,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "клавіатури і миші",
+        "kind": "клавіатура",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851301003": {
+        "kasta_category_id": 49,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоаксесуари",
+        "kind": "автомобільна декоративна накладка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851302523": {
+        "kasta_category_id": 2670,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "туристичне гідрообладнання",
+        "kind": "душ портативний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851305549": {
+        "kasta_category_id": 8254,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "розгалужувач прикурювача",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851313785": {
+        "kasta_category_id": 53,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "автомобільний кабель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851335732": {
+        "kasta_category_id": 10116,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "чохол для ключа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851336207": {
+        "kasta_category_id": 7011,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "кабель синхронізації",
+        "kind": "організатор для кабелю",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851336358": {
+        "kasta_category_id": 1586,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "ручні інструменти",
+        "kind": "бокорізи",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851337717": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851338845": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851375257": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851383046": {
+        "kasta_category_id": 7261,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "кузов авто",
+        "kind": "передня панель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851384949": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851385036": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851385194": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851385664": {
+        "kasta_category_id": 7011,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "кабель синхронізації",
+        "kind": "організатор для кабелю",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851394182": {
+        "kasta_category_id": 4455,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "кріплення для камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2851394399": {
+        "kasta_category_id": 2738,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "емблема автомобільна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2853878912": {
+        "kasta_category_id": 6638,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для фото і відео",
+        "kind": "накaмерний монітор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854300092": {
+        "kasta_category_id": 9189,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "таймери та реле часу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854302670": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854304910": {
+        "kasta_category_id": 9662,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "клейкі речовини і герметики",
+        "kind": "універсальна стрічка клейка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854314178": {
+        "kasta_category_id": 9547,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "інше",
+        "kind": "тримач для телефону",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854317155": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2854317163": {
+        "kasta_category_id": 9189,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "таймери та реле часу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2855072402": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2855072962": {
+        "kasta_category_id": 2440,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "авто и мото",
+        "kind": "двигун для скутера",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2856250785": {
+        "kasta_category_id": 4093,
+        "affiliation": "акустика і навушники",
+        "group": "акустичні системи",
+        "subgroup": "акустичні системи",
+        "kind": "комп'ютерні колонки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2856823254": {
+        "kasta_category_id": 1256,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "мережеве обладнання",
+        "subgroup": "антени та кабелі",
+        "kind": "антена",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858264836": {
+        "kasta_category_id": 7224,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "паяльне обладнання",
+        "kind": "паяльник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858266414": {
+        "kasta_category_id": 9541,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "паяльне обладнання",
+        "kind": "тримач для пайки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858686315": {
+        "kasta_category_id": 6549,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "інструменти",
+        "kind": "набір екстракторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858708961": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858710468": {
+        "kasta_category_id": 6570,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "витратні матеріали",
+        "kind": "набір насадок",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858877179": {
+        "kasta_category_id": 6546,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "чистячі засоби",
+        "kind": "набір для чищення електроніки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858885587": {
+        "kasta_category_id": 7692,
+        "affiliation": "дім",
+        "group": "канцелярія",
+        "subgroup": "пакувальні матеріали",
+        "kind": "подарункова коробка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2858909866": {
+        "kasta_category_id": 4164,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "запчастини і комплектуючі",
+        "subgroup": "комплектуючі",
+        "kind": "контролер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2859102491": {
+        "kasta_category_id": 3258,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "інструмент для плитки та скла",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2859987678": {
+        "kasta_category_id": 8411,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "пилососи та догляд за будинком",
+        "kind": "ручний пилосос",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860044065": {
+        "kasta_category_id": 1881,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "ручні інструменти",
+        "kind": "викрутка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860093872": {
+        "kasta_category_id": 2978,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для фото і відео",
+        "kind": "зарядний пристрій для акумуляторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860117020": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860129991": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860138105": {
+        "kasta_category_id": 2978,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для фото і відео",
+        "kind": "зарядний пристрій для акумуляторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860145980": {
+        "kasta_category_id": 7519,
+        "affiliation": "краса і здоров'я",
+        "group": "товари медичного призначення",
+        "subgroup": "медичні інструменти",
+        "kind": "пінцет медичний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2860545773": {
+        "kasta_category_id": 7665,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "універсальні батареї",
+        "kind": "повербанк",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861718379": {
+        "kasta_category_id": 7464,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "трансмісія та зчеплення авто",
+        "kind": "підшипник підвісний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861724392": {
+        "kasta_category_id": 7277,
+        "affiliation": "дім",
+        "group": "сад, город",
+        "subgroup": "садова техніка",
+        "kind": "перехідник для акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861735475": {
+        "kasta_category_id": 8411,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "пилососи та догляд за будинком",
+        "kind": "ручний пилосос",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861749928": {
+        "kasta_category_id": 2361,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "планшети та аксесуари",
+        "subgroup": "планшети",
+        "kind": "графічний монітор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861753563": {
+        "kasta_category_id": 74,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861756230": {
+        "kasta_category_id": 78,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "адаптер-перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861758840": {
+        "kasta_category_id": 7274,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "мережеве обладнання",
+        "subgroup": "різне",
+        "kind": "перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861759193": {
+        "kasta_category_id": 78,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "адаптер-перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861765648": {
+        "kasta_category_id": 21,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "мережеве обладнання",
+        "subgroup": "kvm-перемикачі",
+        "kind": "kvm-перемикач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2861765774": {
+        "kasta_category_id": 2971,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "носимі пристрої",
+        "kind": "зарядний кабель для смарт-годинників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2862692411": {
+        "kasta_category_id": 6570,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "витратні матеріали",
+        "kind": "набір насадок",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2862828858": {
+        "kasta_category_id": 8105,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "ручні інструменти",
+        "kind": "регулятор висоти плитки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2862830718": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2862832571": {
+        "kasta_category_id": 2544,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "дисплеї і тачскріни",
+        "kind": "дисплей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863804492": {
+        "kasta_category_id": 10407,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "штекер для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863947323": {
+        "kasta_category_id": 6750,
+        "affiliation": "інтимні товари",
+        "group": "інтимні іграшки",
+        "subgroup": "насадки та ерекційні кільця",
+        "kind": "насадка на член",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863947324": {
+        "kasta_category_id": 6170,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "аксесуари та запчастини для пилососів",
+        "kind": "мікрофіброва насадка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863947471": {
+        "kasta_category_id": 6750,
+        "affiliation": "інтимні товари",
+        "group": "інтимні іграшки",
+        "subgroup": "насадки та ерекційні кільця",
+        "kind": "насадка на член",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863949012": {
+        "kasta_category_id": 6750,
+        "affiliation": "інтимні товари",
+        "group": "інтимні іграшки",
+        "subgroup": "насадки та ерекційні кільця",
+        "kind": "насадка на член",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863949126": {
+        "kasta_category_id": 6750,
+        "affiliation": "інтимні товари",
+        "group": "інтимні іграшки",
+        "subgroup": "насадки та ерекційні кільця",
+        "kind": "насадка на член",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2863949931": {
+        "kasta_category_id": 6750,
+        "affiliation": "інтимні товари",
+        "group": "інтимні іграшки",
+        "subgroup": "насадки та ерекційні кільця",
+        "kind": "насадка на член",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864531606": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864554173": {
+        "kasta_category_id": 3071,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "електронні книги та аксесуари",
+        "subgroup": "аксесуари для електронних книг",
+        "kind": "захисне скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864666121": {
+        "kasta_category_id": 3591,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "клавіатури і миші",
+        "kind": "клавіатура",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864668099": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864669983": {
+        "kasta_category_id": 9664,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "універсальний пульт",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864670582": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864672111": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864672211": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864782760": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864783111": {
+        "kasta_category_id": 2670,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "туристичне гідрообладнання",
+        "kind": "душ портативний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864783851": {
+        "kasta_category_id": 2672,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "діагностика та ремонт пк",
+        "kind": "дюпон кабель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864785276": {
+        "kasta_category_id": 7277,
+        "affiliation": "дім",
+        "group": "сад, город",
+        "subgroup": "садова техніка",
+        "kind": "перехідник для акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864785946": {
+        "kasta_category_id": 8508,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "світлодіодна стрічка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864786190": {
+        "kasta_category_id": 74,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864786969": {
+        "kasta_category_id": 2708,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "портативне аудіо",
+        "subgroup": "електронні перекладачі",
+        "kind": "електронний перекладач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864787115": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864792247": {
+        "kasta_category_id": 3458,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "витратні матеріали",
+        "kind": "картридж сумісний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864792343": {
+        "kasta_category_id": 3458,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "витратні матеріали",
+        "kind": "картридж сумісний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864793060": {
+        "kasta_category_id": 6518,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "аксесуари для плит і пальників",
+        "kind": "набір для підключення до балона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864794879": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2864795699": {
+        "kasta_category_id": 3133,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "з'єднувач для шинопроводу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865499298": {
+        "kasta_category_id": 9252,
+        "affiliation": "краса і здоров'я",
+        "group": "обладнання для тату",
+        "subgroup": "витратні матеріали для тату",
+        "kind": "тату-наконечники",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865499408": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865500008": {
+        "kasta_category_id": 4604,
+        "affiliation": "краса і здоров'я",
+        "group": "товари для мам",
+        "subgroup": "інтимна гігієна",
+        "kind": "лактаційні прокладки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865503108": {
+        "kasta_category_id": 3293,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "кабель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865503296": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865503940": {
+        "kasta_category_id": 4896,
+        "affiliation": "дім",
+        "group": "канцелярія",
+        "subgroup": "товари для творчості",
+        "kind": "макетний килимок",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865503983": {
+        "kasta_category_id": 1881,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "ручні інструменти",
+        "kind": "викрутка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865504307": {
+        "kasta_category_id": 2670,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "туристичне гідрообладнання",
+        "kind": "душ портативний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865520775": {
+        "kasta_category_id": 9189,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "таймери та реле часу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865521096": {
+        "kasta_category_id": 3296,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "кабель-канал",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865521275": {
+        "kasta_category_id": 10407,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "штекер для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865658827": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865686423": {
+        "kasta_category_id": 43,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "автолампи",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865686847": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865687802": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865690072": {
+        "kasta_category_id": 9730,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "фари",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865690996": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865706630": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865706822": {
+        "kasta_category_id": 4610,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865739897": {
+        "kasta_category_id": 53,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "автомобільний кабель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865741102": {
+        "kasta_category_id": 4455,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "кріплення для камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865742214": {
+        "kasta_category_id": 8962,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "аксесуари",
+        "kind": "стабілізатор напруги",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865749515": {
+        "kasta_category_id": 6546,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "чистячі засоби",
+        "kind": "набір для чищення електроніки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865753514": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865755357": {
+        "kasta_category_id": 5926,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "тактичні муфти",
+        "kind": "масляна трубка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865757038": {
+        "kasta_category_id": 8106,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "запчастини для електроінструментів",
+        "kind": "регулятор обертів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865757338": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865758077": {
+        "kasta_category_id": 2587,
+        "affiliation": "дім",
+        "group": "меблі",
+        "subgroup": "офісні меблі",
+        "kind": "додатковий модуль",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865768774": {
+        "kasta_category_id": 7382,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "підсвітка автомобільна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865774375": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865774571": {
+        "kasta_category_id": 2971,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "носимі пристрої",
+        "kind": "зарядний кабель для смарт-годинників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865774629": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865774674": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865957908": {
+        "kasta_category_id": 6518,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "аксесуари для плит і пальників",
+        "kind": "набір для підключення до балона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2865979554": {
+        "kasta_category_id": 1758,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "вимірювальні прилади та техніка",
+        "kind": "ваги ювелірні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866104093": {
+        "kasta_category_id": 7382,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "підсвітка автомобільна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866104521": {
+        "kasta_category_id": 7382,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "підсвітка автомобільна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866118763": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866121125": {
+        "kasta_category_id": 9004,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "велосипеди та аксесуари",
+        "subgroup": "стійки та підвіси для велосипедів",
+        "kind": "стійка велосипедна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866136985": {
+        "kasta_category_id": 7276,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866140923": {
+        "kasta_category_id": 2067,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "втулка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866303790": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866311525": {
+        "kasta_category_id": 2971,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "носимі пристрої",
+        "kind": "зарядний кабель для смарт-годинників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866317128": {
+        "kasta_category_id": 78,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "адаптер-перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866318380": {
+        "kasta_category_id": 3294,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "кабель для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2866361510": {
+        "kasta_category_id": 3294,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "кабель для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2867052561": {
+        "kasta_category_id": 1490,
+        "affiliation": "дім",
+        "group": "для рукоділля",
+        "subgroup": "фурнітура",
+        "kind": "біжутерний конектор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2867055647": {
+        "kasta_category_id": 10407,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "штекер для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2867056981": {
+        "kasta_category_id": 7011,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "кабель синхронізації",
+        "kind": "організатор для кабелю",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2867058241": {
+        "kasta_category_id": 4152,
+        "affiliation": "унісекс",
+        "group": "аксесуари",
+        "subgroup": "окуляри",
+        "kind": "контактні лінзи",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2868102437": {
+        "kasta_category_id": 8128,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "реле автомобільні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2868102448": {
+        "kasta_category_id": 1548,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "блок розпалювання",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2868102502": {
+        "kasta_category_id": 9541,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "паяльне обладнання",
+        "kind": "тримач для пайки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2868102893": {
+        "kasta_category_id": 4093,
+        "affiliation": "акустика і навушники",
+        "group": "акустичні системи",
+        "subgroup": "акустичні системи",
+        "kind": "комп'ютерні колонки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2868103369": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2869296167": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2871170510": {
+        "kasta_category_id": 6998,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомобільні органайзера",
+        "kind": "органайзер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2875318866": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877815776": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877856142": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877953202": {
+        "kasta_category_id": 2423,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "датчик руху",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877970358": {
+        "kasta_category_id": 4510,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "товари для пікніка",
+        "subgroup": "все для мангалів, барбекю, грилі",
+        "kind": "кулінарний термометр",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877977197": {
+        "kasta_category_id": 3711,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "кнопка керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877981343": {
+        "kasta_category_id": 132,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "геймінг",
+        "subgroup": "ігрові приставки",
+        "kind": "аксесуари для ігрових консолей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877986247": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2877991783": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2878002673": {
+        "kasta_category_id": 4510,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "товари для пікніка",
+        "subgroup": "все для мангалів, барбекю, грилі",
+        "kind": "кулінарний термометр",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2878058306": {
+        "kasta_category_id": 10110,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "чохол для екшн-камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2878096357": {
+        "kasta_category_id": 2598,
+        "affiliation": "акустика і навушники",
+        "group": "акустичні системи",
+        "subgroup": "домашній кінотеатр",
+        "kind": "домашній кінотеатр, саундбар",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2878352014": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879189441": {
+        "kasta_category_id": 3202,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "геймінг",
+        "subgroup": "ігрові приставки",
+        "kind": "ігрова консоль",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879486201": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879494185": {
+        "kasta_category_id": 3213,
+        "affiliation": "дівчаткам",
+        "group": "іграшки та ігри",
+        "subgroup": "роботи",
+        "kind": "ігровий набір",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879495343": {
+        "kasta_category_id": 3271,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "проектори та аксесуари",
+        "subgroup": "інтерактивні панелі",
+        "kind": "інтерактивна панель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879510764": {
+        "kasta_category_id": 7224,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "паяльне обладнання",
+        "kind": "паяльник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879718397": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879794507": {
+        "kasta_category_id": 310,
+        "affiliation": "дім",
+        "group": "колекціонування",
+        "subgroup": "блоки живлення",
+        "kind": "альбом для монет і банкнот",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879838195": {
+        "kasta_category_id": 7011,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "кабель синхронізації",
+        "kind": "організатор для кабелю",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2879842434": {
+        "kasta_category_id": 2971,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "носимі пристрої",
+        "kind": "зарядний кабель для смарт-годинників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2880002805": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882112085": {
+        "kasta_category_id": 2417,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "датчик автомобільний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882158493": {
+        "kasta_category_id": 1541,
+        "affiliation": "краса і здоров'я",
+        "group": "обладнання для тату",
+        "subgroup": "тату-машинки і запчастини",
+        "kind": "блок живлення для тату-машинки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882221402": {
+        "kasta_category_id": 1539,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "блок живлення",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882221547": {
+        "kasta_category_id": 10407,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "штекер для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882222057": {
+        "kasta_category_id": 2283,
+        "affiliation": "акустика і навушники",
+        "group": "акустичні системи",
+        "subgroup": "аксесуари для акустики",
+        "kind": "гніздо акустичне",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882297154": {
+        "kasta_category_id": 2055,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "вимірювальна техніка",
+        "kind": "вольтметр",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882401673": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2882405786": {
+        "kasta_category_id": 8106,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "запчастини для електроінструментів",
+        "kind": "регулятор обертів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2884576309": {
+        "kasta_category_id": 2880,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоаксесуари",
+        "kind": "заглушка ременя безпеки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2884620652": {
+        "kasta_category_id": 21,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "мережеве обладнання",
+        "subgroup": "kvm-перемикачі",
+        "kind": "kvm-перемикач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2884638501": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2884649009": {
+        "kasta_category_id": 8975,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "інструменти",
+        "kind": "стартовий провід",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2884649192": {
+        "kasta_category_id": 1490,
+        "affiliation": "дім",
+        "group": "для рукоділля",
+        "subgroup": "фурнітура",
+        "kind": "біжутерний конектор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885579242": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885608562": {
+        "kasta_category_id": 9189,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "таймери та реле часу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885624331": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885626679": {
+        "kasta_category_id": 7272,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автозвук",
+        "kind": "перетворювач аудіосигналу",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885647490": {
+        "kasta_category_id": 7833,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "посадковий майданчик",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885653253": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2885654691": {
+        "kasta_category_id": 2544,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "дисплеї і тачскріни",
+        "kind": "дисплей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893677059": {
+        "kasta_category_id": 4168,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "мікросхеми для телефонів",
+        "kind": "контролер живлення",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893684437": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893691110": {
+        "kasta_category_id": 3240,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "обладнання",
+        "kind": "інвертор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893701569": {
+        "kasta_category_id": 3242,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "діагностика та ремонт пк",
+        "kind": "інвертор підсвітки для моніторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893705987": {
+        "kasta_category_id": 3242,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "діагностика та ремонт пк",
+        "kind": "інвертор підсвітки для моніторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893716889": {
+        "kasta_category_id": 6672,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "клавіатури і миші",
+        "kind": "наклейки для клавіатури",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893718969": {
+        "kasta_category_id": 7424,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "підставки і столики для ноутбуків",
+        "kind": "підставка для ноутбука",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893721237": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893728723": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2893740167": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894059201": {
+        "kasta_category_id": 2283,
+        "affiliation": "акустика і навушники",
+        "group": "акустичні системи",
+        "subgroup": "аксесуари для акустики",
+        "kind": "гніздо акустичне",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894075271": {
+        "kasta_category_id": 9664,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "універсальний пульт",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894205568": {
+        "kasta_category_id": 8014,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894215637": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894238838": {
+        "kasta_category_id": 8019,
+        "affiliation": "дітям",
+        "group": "іграшки та ігри",
+        "subgroup": "комплектуючі для радіокерованих моделей",
+        "kind": "пульт керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894240535": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894280607": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894300144": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894400214": {
+        "kasta_category_id": 2670,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "туристичне гідрообладнання",
+        "kind": "душ портативний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894419160": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894431294": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894449385": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894454120": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894457399": {
+        "kasta_category_id": 2305,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "запчастини для двигуна",
+        "kind": "головка блоку циліндрів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894468636": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894471634": {
+        "kasta_category_id": 3343,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "камера заднього виду",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894485042": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894490054": {
+        "kasta_category_id": 4869,
+        "affiliation": "дім",
+        "group": "товари для бізнесу",
+        "subgroup": "системи контролю-керування доступом",
+        "kind": "магнітний ключ",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894494219": {
+        "kasta_category_id": 2972,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "зарядний пристрій",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894499720": {
+        "kasta_category_id": 9075,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "студійне обладнання",
+        "kind": "студійне світло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894505579": {
+        "kasta_category_id": 4734,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "аксесуари",
+        "kind": "ліхтарик",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894510310": {
+        "kasta_category_id": 8894,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "комплектуючі до побутової техніки",
+        "kind": "спіраль електрична",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894510990": {
+        "kasta_category_id": 2674,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "проектори та аксесуари",
+        "subgroup": "екрани для проекторів",
+        "kind": "екран",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894518736": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894527010": {
+        "kasta_category_id": 7424,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "підставки і столики для ноутбуків",
+        "kind": "підставка для ноутбука",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894528497": {
+        "kasta_category_id": 52,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "зарядні пристрої",
+        "kind": "автомобільний зарядний пристрій",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894534060": {
+        "kasta_category_id": 52,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "зарядні пристрої",
+        "kind": "автомобільний зарядний пристрій",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894537680": {
+        "kasta_category_id": 52,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "зарядні пристрої",
+        "kind": "автомобільний зарядний пристрій",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2894537755": {
+        "kasta_category_id": 7937,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "проектор на лобове скло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900707996": {
+        "kasta_category_id": 6855,
+        "affiliation": "побутова техніка",
+        "group": "дрібна побутова техніка",
+        "subgroup": "запчастини для електробритв, машинок для стрижки",
+        "kind": "ножовий блок",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900710271": {
+        "kasta_category_id": 7004,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "засоби захисту, ящики",
+        "kind": "органайзер для інструментів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900776728": {
+        "kasta_category_id": 8258,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "конектори для телефонів",
+        "kind": "роз’єм для зарядки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900777427": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900777956": {
+        "kasta_category_id": 3233,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "сантехніка",
+        "kind": "ізоляція для труб",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900779871": {
+        "kasta_category_id": 8258,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "конектори для телефонів",
+        "kind": "роз’єм для зарядки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900780222": {
+        "kasta_category_id": 6240,
+        "affiliation": "побутова техніка",
+        "group": "кліматична техніка",
+        "subgroup": "аксесуари та запчастини до кліматичної техніки",
+        "kind": "модуль",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900783733": {
+        "kasta_category_id": 7838,
+        "affiliation": "послуги для техніки",
+        "group": "послуги для техніки",
+        "subgroup": "послуги для техніки",
+        "kind": "послуга налаштування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900783835": {
+        "kasta_category_id": 7681,
+        "affiliation": "автотовари, інструменти",
+        "group": "запасні частини",
+        "subgroup": "підвіска автомобіля",
+        "kind": "поворотний кулак",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900786520": {
+        "kasta_category_id": 122,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "запчастини і комплектуючі",
+        "subgroup": "захист даних",
+        "kind": "аксесуар для ключа безпеки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900789443": {
+        "kasta_category_id": 156,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "акумулятор для дбж",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900793441": {
+        "kasta_category_id": 2978,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для фото і відео",
+        "kind": "зарядний пристрій для акумуляторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900796421": {
+        "kasta_category_id": 150,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "електротранспорт",
+        "subgroup": "аксесуари для електротранспорту",
+        "kind": "активний балансир",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900797543": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900801213": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900805031": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900822776": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900835874": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900836577": {
+        "kasta_category_id": 8508,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "світлодіодна стрічка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900842025": {
+        "kasta_category_id": 10407,
+        "affiliation": "акустика і навушники",
+        "group": "портативне аудіо",
+        "subgroup": "аксесуари для навушників",
+        "kind": "штекер для навушників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900862670": {
+        "kasta_category_id": 7382,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "декор",
+        "kind": "підсвітка автомобільна",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900873973": {
+        "kasta_category_id": 2086,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "ліхтарі і аксесуари",
+        "subgroup": "газові лампи",
+        "kind": "газова лампа",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900877047": {
+        "kasta_category_id": 1541,
+        "affiliation": "краса і здоров'я",
+        "group": "обладнання для тату",
+        "subgroup": "тату-машинки і запчастини",
+        "kind": "блок живлення для тату-машинки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2900898502": {
+        "kasta_category_id": 2440,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "авто и мото",
+        "kind": "двигун для скутера",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2901796018": {
+        "kasta_category_id": 9664,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "універсальний пульт",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902674146": {
+        "kasta_category_id": 8508,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "світлодіодна стрічка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902726217": {
+        "kasta_category_id": 1335,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомобільні органайзера",
+        "kind": "багажник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902777574": {
+        "kasta_category_id": 10110,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "чохол для екшн-камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902785780": {
+        "kasta_category_id": 10110,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "чохол для екшн-камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902791214": {
+        "kasta_category_id": 10110,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "чохол для екшн-камери",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2902796796": {
+        "kasta_category_id": 8690,
+        "affiliation": "дім",
+        "group": "посуд і кухонні аксесуари",
+        "subgroup": "підноси, обробні дошки",
+        "kind": "складаний столик",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2903605578": {
+        "kasta_category_id": 8012,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "аксесуари",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2903620451": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2903625333": {
+        "kasta_category_id": 9663,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомастила",
+        "kind": "універсальне масло",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2903627916": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2904625054": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2904627351": {
+        "kasta_category_id": 1335,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автомобільні органайзера",
+        "kind": "багажник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2904646183": {
+        "kasta_category_id": 3635,
+        "affiliation": "дівчаткам",
+        "group": "аксесуари",
+        "subgroup": "біжутерія",
+        "kind": "кліпси",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906562322": {
+        "kasta_category_id": 3241,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "зарядні станції",
+        "kind": "інвертор для сонячних батарей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906563110": {
+        "kasta_category_id": 12,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автотовари",
+        "kind": "fm-трансмітер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906574699": {
+        "kasta_category_id": 10408,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "штекер телевізійний",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906581977": {
+        "kasta_category_id": 3625,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "клеми акумуляторні",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906595732": {
+        "kasta_category_id": 8962,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "аксесуари",
+        "kind": "стабілізатор напруги",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906603751": {
+        "kasta_category_id": 6605,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "набір  для демонтажу стопорних кілець",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906607602": {
+        "kasta_category_id": 74,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906608445": {
+        "kasta_category_id": 7978,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "профіль для світлодіодної стрічки",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2906612159": {
+        "kasta_category_id": 8015,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для екшн-камер",
+        "kind": "пульт дистанційного керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2907870237": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2907872631": {
+        "kasta_category_id": 1547,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "блок розетка+вимикач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914529137": {
+        "kasta_category_id": 1539,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "освітлення інтер'єру",
+        "kind": "блок живлення",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914556816": {
+        "kasta_category_id": 47,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "автоматичний вимикач",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914644603": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914669408": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914678955": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914682687": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914683887": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914684553": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2914684730": {
+        "kasta_category_id": 2922,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоелектроніка",
+        "kind": "запобіжник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915391333": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915433088": {
+        "kasta_category_id": 1490,
+        "affiliation": "дім",
+        "group": "для рукоділля",
+        "subgroup": "фурнітура",
+        "kind": "біжутерний конектор",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915439577": {
+        "kasta_category_id": 8717,
+        "affiliation": "дім",
+        "group": "ремонт і будівельні матеріали",
+        "subgroup": "інструменти і супутні матеріали",
+        "kind": "скотч алюмінієвий",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915454806": {
+        "kasta_category_id": 8962,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "аксесуари",
+        "kind": "стабілізатор напруги",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915465155": {
+        "kasta_category_id": 3711,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "електротовари",
+        "kind": "кнопка керування",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915468684": {
+        "kasta_category_id": 1813,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "товари для пікніка",
+        "subgroup": "вулична кухня",
+        "kind": "вбудований гриль",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915472213": {
+        "kasta_category_id": 4169,
+        "affiliation": "дім",
+        "group": "техніка",
+        "subgroup": "зарядні станції",
+        "kind": "контролер заряду сонячних батарей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915474925": {
+        "kasta_category_id": 7424,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "підставки і столики для ноутбуків",
+        "kind": "підставка для ноутбука",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915488094": {
+        "kasta_category_id": 13,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "gps модуль для дрона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915493688": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915943402": {
+        "kasta_category_id": 7563,
+        "affiliation": "дім",
+        "group": "посуд і кухонні аксесуари",
+        "subgroup": "дитячий посуд",
+        "kind": "пластиковий посуд",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915959824": {
+        "kasta_category_id": 2970,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "блоки живлення",
+        "kind": "зарядний адаптер",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915960272": {
+        "kasta_category_id": 7706,
+        "affiliation": "автотовари, інструменти",
+        "group": "інструменти і обладнання",
+        "subgroup": "запасні частини",
+        "kind": "подовжувач амортизатора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915964474": {
+        "kasta_category_id": 9051,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "радіокеровані пристрої",
+        "subgroup": "аксесуари для дронів",
+        "kind": "стрепи для кріплення акумулятора",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915965241": {
+        "kasta_category_id": 6518,
+        "affiliation": "спорт і активний відпочинок",
+        "group": "туризм і кемпінг",
+        "subgroup": "аксесуари для плит і пальників",
+        "kind": "набір для підключення до балона",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915971511": {
+        "kasta_category_id": 3642,
+        "affiliation": "дім",
+        "group": "інструменти",
+        "subgroup": "ручні інструменти",
+        "kind": "кліщі",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915971710": {
+        "kasta_category_id": 6116,
+        "affiliation": "дім",
+        "group": "декор",
+        "subgroup": "годинники, будильники, метеостанції",
+        "kind": "метеостанція",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915975278": {
+        "kasta_category_id": 7424,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "підставки і столики для ноутбуків",
+        "kind": "підставка для ноутбука",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915977654": {
+        "kasta_category_id": 7424,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "підставки і столики для ноутбуків",
+        "kind": "підставка для ноутбука",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2915989405": {
+        "kasta_category_id": 3293,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "телевізори",
+        "subgroup": "аксесуари до телевізорів",
+        "kind": "кабель",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2916007509": {
+        "kasta_category_id": 49,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автоаксесуари",
+        "kind": "автомобільна декоративна накладка",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2916925748": {
+        "kasta_category_id": 2544,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "запчастини для телефонів і смартфонів",
+        "subgroup": "дисплеї і тачскріни",
+        "kind": "дисплей",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2919923650": {
+        "kasta_category_id": 7577,
+        "affiliation": "ноутбуки, комп'ютери і планшети",
+        "group": "аксесуари",
+        "subgroup": "джерела безперебійного живлення",
+        "kind": "плата захисту",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2925833835": {
+        "kasta_category_id": 7084,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "котли",
+        "kind": "паливо для котлів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2925846523": {
+        "kasta_category_id": 2971,
+        "affiliation": "смартфони, телефони і аксесуари",
+        "group": "аксесуари для мобільних телефонів і смартфонів",
+        "subgroup": "носимі пристрої",
+        "kind": "зарядний кабель для смарт-годинників",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2925893396": {
+        "kasta_category_id": 78,
+        "affiliation": "автотовари, інструменти",
+        "group": "авто і мото",
+        "subgroup": "автосвітло",
+        "kind": "адаптер-перехідник",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2925954824": {
+        "kasta_category_id": 2978,
+        "affiliation": "телевізори, фото і відео техніка",
+        "group": "фото і відео техніка",
+        "subgroup": "аксесуари для фото і відео",
+        "kind": "зарядний пристрій для акумуляторів",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    },
+    "2926147121": {
+        "kasta_category_id": 8408,
+        "affiliation": "побутова техніка",
+        "group": "велика побутова техніка",
+        "subgroup": "аксесуари та запчастини для плит і духовок",
+        "kind": "ручка регулювання для плити",
+        "auto_mapped": true,
+        "mapped_at": "2026-02-22"
+    }
+}
