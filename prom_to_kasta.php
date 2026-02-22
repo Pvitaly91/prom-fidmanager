@@ -232,6 +232,12 @@ function parsePromFeed(string $feedPath): array
             $currency  = isset($o->currencyId) ? trim((string)$o->currencyId) : 'UAH';
             $available = strtolower(trim((string)$o['available'])) !== 'false';
 
+            // Prom category ID (used for exclusion filtering)
+            $promCatId = '';
+            if (isset($o->categoryId)) {
+                $promCatId = trim((string)$o->categoryId);
+            }
+
             // collect params
             $params = [];
             if (isset($o->param)) {
@@ -246,6 +252,7 @@ function parsePromFeed(string $feedPath): array
 
             $offers[] = [
                 'id'          => $id,
+                'prom_cat_id' => $promCatId,
                 'available'   => $available,
                 'name'        => $name,
                 'description' => $description,
@@ -534,10 +541,29 @@ try {
     // Load persisted mapping
     $mapping = loadMapping($mappingFile);
 
+    // Load excluded items (offers + prom categories)
+    $excludedItemsFile = $baseDir . '/excluded_items.json';
+    $excludedItems = ['offers' => [], 'categories' => []];
+    if (is_file($excludedItemsFile)) {
+        $rawExcl = @file_get_contents($excludedItemsFile);
+        if ($rawExcl !== false && $rawExcl !== '') {
+            $excludedItems = json_decode($rawExcl, true) ?? $excludedItems;
+        }
+    }
+    $excludedOfferSet = array_flip($excludedItems['offers']     ?? []);
+    $excludedCatSet   = array_flip($excludedItems['categories'] ?? []);
+
     // Parse Prom feed
     $feedData      = parsePromFeed($inputFile);
     $offers        = $feedData['offers'];
     $promCategories = $feedData['promCategories'];
+
+    // Filter out excluded offers and offers in excluded prom categories
+    $offers = array_values(array_filter($offers, function ($o) use ($excludedOfferSet, $excludedCatSet) {
+        if (isset($excludedOfferSet[$o['id']])) return false;
+        if ($o['prom_cat_id'] !== '' && isset($excludedCatSet[$o['prom_cat_id']])) return false;
+        return true;
+    }));
 
     $totalOffers   = count($offers);
     $newlyMapped   = 0;

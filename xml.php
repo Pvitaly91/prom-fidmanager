@@ -140,6 +140,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assig
     exit;
 }
 
+// ---- JSON API: toggle exclude offer/category from kasta.xml ----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'toggle_exclude') {
+    header('Content-Type: application/json; charset=utf-8');
+    $type = $_POST['type'] ?? '';          // 'offer' or 'category'
+    $id   = trim($_POST['id']   ?? '');
+    if (!in_array($type, ['offer', 'category'], true) || $id === '') {
+        echo json_encode(['ok' => false, 'error' => 'Missing params']);
+        exit;
+    }
+    $excludedFile = $baseDir . '/excluded_items.json';
+    $exc = ['offers' => [], 'categories' => []];
+    if (is_file($excludedFile)) {
+        $raw = @file_get_contents($excludedFile);
+        if ($raw !== false && $raw !== '') $exc = json_decode($raw, true) ?? $exc;
+    }
+    $key = ($type === 'offer') ? 'offers' : 'categories';
+    $set = array_flip($exc[$key] ?? []);
+    $nowExcluded = !isset($set[$id]);   // toggle
+    if ($nowExcluded) {
+        $set[$id] = true;
+    } else {
+        unset($set[$id]);
+    }
+    $exc[$key] = array_values(array_map('strval', array_keys($set)));
+    try {
+        $jsonOut = json_encode($exc, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        echo json_encode(['ok' => false, 'error' => 'JSON error: ' . $e->getMessage()]);
+        exit;
+    }
+    if (file_put_contents($excludedFile, $jsonOut, LOCK_EX) === false) {
+        echo json_encode(['ok' => false, 'error' => 'Cannot write excluded_items.json']);
+        exit;
+    }
+    echo json_encode([
+        'ok'         => true,
+        'excluded'   => $nowExcluded,
+        'offer_count' => count($exc['offers']),
+        'cat_count'   => count($exc['categories']),
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// ---- JSON API: run prom_to_kasta conversion in background ----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'convert_async') {
+    header('Content-Type: application/json; charset=utf-8');
+    $inputName       = basename(trim($_POST['input_file'] ?? 'products_feed.xml'));
+    $inputPath       = $baseDir . DIRECTORY_SEPARATOR . $inputName;
+    $outputPath      = $baseDir . DIRECTORY_SEPARATOR . 'kasta.xml';
+    $converterScript = $baseDir . DIRECTORY_SEPARATOR . 'prom_to_kasta.php';
+    if (!is_file($converterScript)) {
+        echo json_encode(['ok' => false, 'error' => 'prom_to_kasta.php не знайдено']);
+        exit;
+    }
+    if (!is_file($inputPath)) {
+        echo json_encode(['ok' => false, 'error' => 'Файл не знайдено: ' . $inputName]);
+        exit;
+    }
+    $cmd = 'php ' . escapeshellarg($converterScript)
+         . ' ' . escapeshellarg($inputPath)
+         . ' ' . escapeshellarg($outputPath);
+    exec($cmd . ' 2>&1', $cmdOut, $ret);
+    if ($ret === 0) {
+        echo json_encode(['ok' => true]);
+    } else {
+        echo json_encode(['ok' => false, 'error' => implode(' | ', array_slice($cmdOut, 0, 3))]);
+    }
+    exit;
+}
+
 // ---- JSON API: bulk assign Kasta category ----
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assign_bulk') {
     header('Content-Type: application/json; charset=utf-8');
@@ -310,6 +380,16 @@ if (is_file($mappingFile) && is_readable($mappingFile)) {
     $raw = @file_get_contents($mappingFile);
     if ($raw !== false && $raw !== '') $mapping = json_decode($raw, true) ?? [];
 }
+
+// Load excluded items
+$excludedFile = $baseDir . '/excluded_items.json';
+$excluded = ['offers' => [], 'categories' => []];
+if (is_file($excludedFile) && is_readable($excludedFile)) {
+    $raw = @file_get_contents($excludedFile);
+    if ($raw !== false && $raw !== '') $excluded = json_decode($raw, true) ?? $excluded;
+}
+$excludedOfferSet = array_flip($excluded['offers'] ?? []);
+$excludedCatSet   = array_flip($excluded['categories'] ?? []);
 
 // Collect which Kasta category IDs are already used in this mapping
 $usedKastaCatIds = [];
@@ -512,6 +592,8 @@ function renderCategory(
     array $productsByCat,
     array $totals,
     array $mapping,
+    array $excludedOfferSet,
+    array $excludedCatSet,
     int $maxPerCat,
     bool $showImages,
     int $depth = 0
@@ -526,12 +608,18 @@ function renderCategory(
     $hasChildren = !empty($cat['children']);
     $hasProducts = $direct > 0;
     $open = ($depth < 2) ? ' open' : '';
+    $isExclCat = isset($excludedCatSet[(string)$id]);
 
-    echo '<details class="cat"' . $open . '>';
+    echo '<details class="cat' . ($isExclCat ? ' cat-excl' : '') . '" data-cat-id="' . h((string)$id) . '"' . $open . '>';
     echo '<summary>';
     echo '<span class="cat-name">' . h((string)$name) . '</span>';
     echo ' <span class="meta">(' . $direct . ' / ' . $total . ')</span>';
     echo ' <span class="meta-id">#' . h((string)$id) . '</span>';
+    $exclCatTitle = $isExclCat ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста';
+    echo ' <button class="btn-excl excl-btn-cat' . ($isExclCat ? ' active' : '') . '" type="button"'
+       . ' data-cat="' . h((string)$id) . '"'
+       . ' onclick="event.stopPropagation();toggleExclude(\'category\',' . htmlspecialchars(json_encode((string)$id, JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') . ',this)"'
+       . ' title="' . h($exclCatTitle) . '">🚫</button>';
     echo '</summary>';
 
     if ($hasProducts) {
@@ -550,8 +638,9 @@ function renderCategory(
             $pCur   = (string)($p['currency'] ?? '');
             $pPic   = (string)($p['picture'] ?? '');
             $pId    = (string)($p['id'] ?? '');
+            $isExclOffer = isset($excludedOfferSet[$pId]);
 
-            echo '<li class="product">';
+            echo '<li class="product' . ($isExclOffer ? ' excl-item' : '') . '">';
             echo '<label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="' . h($pId) . '"></label>';
             if ($showImages) {
                 if ($pPic !== '') {
@@ -577,6 +666,11 @@ function renderCategory(
                 echo '<div class="pid">offer#' . h($pId) . '</div>';
             }
             renderOfferMapping($pId, $mapping);
+            $exclOfferTitle = $isExclOffer ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста';
+            echo '<button class="btn-excl excl-btn-offer' . ($isExclOffer ? ' active' : '') . '" type="button"'
+               . ' data-offer="' . h($pId) . '"'
+               . ' onclick="toggleExclude(\'offer\',' . htmlspecialchars(json_encode($pId, JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8') . ',this)"'
+               . ' title="' . h($exclOfferTitle) . '">🚫</button>';
             echo '</div>';
             echo '</li>';
         }
@@ -595,7 +689,7 @@ function renderCategory(
     if ($hasChildren) {
         echo '<div class="children">';
         foreach ($cat['children'] as $childId) {
-            renderCategory($childId, $categories, $productsByCat, $totals, $mapping, $maxPerCat, $showImages, $depth + 1);
+            renderCategory($childId, $categories, $productsByCat, $totals, $mapping, $excludedOfferSet, $excludedCatSet, $maxPerCat, $showImages, $depth + 1);
         }
         echo '</div>';
     }
@@ -628,6 +722,23 @@ if (!$feedError) {
         $feedError = 'Помилка: ' . $e->getMessage();
     }
 }
+
+// Build flat offer-id → product data index (for excluded view)
+$productById = [];
+if (!$feedError) {
+    foreach ($productsByCat as $catId => $products) {
+        foreach ($products as $p) {
+            if (!empty($p['id'])) {
+                $productById[$p['id']] = $p;
+            }
+        }
+    }
+}
+
+// Current feed file for auto-convert (avoid looping kasta.xml → kasta.xml)
+$autoConvertInput = (basename($feedPath) === 'kasta.xml' || $feedError !== '')
+    ? 'products_feed.xml'
+    : basename($feedPath);
 
 header('Content-Type: text/html; charset=utf-8');
 ?>
@@ -768,9 +879,49 @@ header('Content-Type: text/html; charset=utf-8');
     #cat-modal-footer { display:flex; justify-content:flex-end; margin-top:12px; }
     #cat-modal-footer button { padding:7px 18px; border:none; border-radius:8px; cursor:pointer; font-size:13px; background:#eee; }
     #cat-modal-footer button:hover { background:#ddd; }
+
+    /* ---- Exclude button ---- */
+    .btn-excl { background:none; border:none; cursor:pointer; padding:1px 4px; font-size:13px; opacity:0.35; line-height:1; }
+    .btn-excl:hover { opacity:0.85; }
+    .btn-excl.active { opacity:1; filter: none; }
+    /* Excluded product row */
+    li.product.excl-item { opacity:0.5; border-color:#fcc; background:#fff5f5; }
+    /* Excluded category */
+    details.cat.cat-excl > summary .cat-name { text-decoration:line-through; color:#aaa; }
+    details.cat.cat-excl { border-left-color:#fcc; }
+
+    /* ---- View tabs ---- */
+    .view-tabs { display:flex; gap:6px; margin-bottom:10px; align-items:center; flex-wrap:wrap; }
+    .view-tab { padding:5px 14px; border:1px solid #ccd; border-radius:8px; background:#fafafa; cursor:pointer; font-size:13px; color:#444; }
+    .view-tab.active { background:#1a56a0; color:#fff; border-color:#1a56a0; font-weight:600; }
+    .view-tab .badge { display:inline-block; background:#e55; color:#fff; border-radius:999px; padding:1px 7px; font-size:11px; font-weight:700; margin-left:4px; }
+    .view-tab.active .badge { background:#fff; color:#1a56a0; }
+
+    /* ---- Excluded view ---- */
+    #view-excluded { padding: 4px 0; }
+    #view-excluded h3 { font-size:14px; color:#888; margin:16px 0 6px; }
+    #view-excluded .excl-empty { color:#aaa; font-size:13px; font-style:italic; margin:8px 0; }
+    .excl-item-entry { display:flex; gap:10px; align-items:center; padding:6px 10px; margin:4px 0;
+                        border:1px solid #fcc; border-radius:8px; background:#fff5f5; flex-wrap:wrap; }
+    .excl-item-entry .excl-name { flex:1; font-size:13px; color:#333; word-break:break-word; }
+    .excl-item-entry .excl-sub { font-size:11px; color:#888; }
+    .btn-restore { padding:4px 10px; border:none; border-radius:6px; cursor:pointer; font-size:12px;
+                   background:#0a7c3c; color:#fff; white-space:nowrap; }
+    .btn-restore:hover { background:#085e2d; }
+
+    /* ---- Auto-convert toast ---- */
+    #convert-toast { position:fixed; bottom:24px; right:20px; z-index:2000; padding:10px 18px;
+                     border-radius:10px; font-size:13px; font-weight:600; box-shadow:0 4px 16px rgba(0,0,0,.25);
+                     pointer-events:none; transition:opacity .3s; opacity:0; }
+    #convert-toast.toast-loading { background:#1a56a0; color:#fff; opacity:1; }
+    #convert-toast.toast-ok      { background:#0a7c3c; color:#fff; opacity:1; }
+    #convert-toast.toast-err     { background:#c00;    color:#fff; opacity:1; }
   </style>
 </head>
 <body>
+
+<!-- ===== Auto-convert toast ===== -->
+<div id="convert-toast" aria-live="polite"></div>
 
   <!-- ===== Source / Conversion panel ===== -->
   <details class="panel" <?php echo ($feedError !== '' || $postError !== '') ? 'open' : ''; ?>>
@@ -879,33 +1030,52 @@ header('Content-Type: text/html; charset=utf-8');
   <div class="live-search-bar">
     <div class="ls-group">
       <span class="ls-icon">📂</span>
-      <input id="filter-cat" type="search" placeholder="Пошук по назві категорії…" autocomplete="off" oninput="scheduleFilter()">
+      <input id="filter-cat" type="search" placeholder="Пошук по назві категорії…" autocomplete="off">
       <button class="ls-clear" type="button" onclick="clearFilter('filter-cat')" title="Очистити">×</button>
     </div>
     <div class="ls-group">
       <span class="ls-icon">🔍</span>
-      <input id="filter-product" type="search" placeholder="Пошук по назві товару…" autocomplete="off" oninput="scheduleFilter()">
+      <input id="filter-product" type="search" placeholder="Пошук по назві товару…" autocomplete="off">
       <button class="ls-clear" type="button" onclick="clearFilter('filter-product')" title="Очистити">×</button>
     </div>
     <span id="filter-count" class="ls-count"></span>
   </div>
+
+  <!-- ===== View tabs ===== -->
+  <?php
+    $totalExcluded = count($excluded['offers']) + count($excluded['categories']);
+  ?>
+  <div class="view-tabs">
+    <button class="view-tab active" type="button" id="view-tab-all" onclick="showView('all',this)">📋 Всі товари</button>
+    <button class="view-tab" type="button" id="view-tab-excl" onclick="showView('excluded',this)">🚫 Виключені <span class="badge" id="excl-tab-count"><?php echo $totalExcluded; ?></span></button>
+  </div>
+
+  <!-- ===== All products view ===== -->
+  <div id="view-all">
 
   <?php if (!empty($unknownProducts)): ?>
     <details class="cat" open>
       <summary>
         <span class="cat-name">Невідомі категорії / categoryId без опису</span>
         <span class="meta">(<?php echo (int)$unknownCount; ?>)</span>
+        <button class="btn-excl" type="button" style="opacity:0.2;cursor:default" title="Не можна виключити всю групу тут">🚫</button>
       </summary>
       <div class="children">
         <?php foreach ($unknownProducts as $cid => $list): ?>
           <?php
             $direct = count($list);
             usort($list, fn($a, $b) => strcmp($a['name'] ?? '', $b['name'] ?? ''));
+            $isExclUnknownCat = isset($excludedCatSet[(string)$cid]);
           ?>
-          <details class="cat">
+          <details class="cat<?php echo $isExclUnknownCat ? ' cat-excl' : ''; ?>" data-cat-id="<?php echo h((string)$cid); ?>">
             <summary>
               <span class="cat-name">categoryId <?php echo h((string)$cid); ?></span>
               <span class="meta">(<?php echo (int)$direct; ?>)</span>
+              <?php $exclCT = $isExclUnknownCat ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста'; ?>
+              <button class="btn-excl excl-btn-cat<?php echo $isExclUnknownCat ? ' active' : ''; ?>" type="button"
+                data-cat="<?php echo h((string)$cid); ?>"
+                onclick="event.stopPropagation();toggleExclude('category',<?php echo htmlspecialchars(json_encode((string)$cid), ENT_QUOTES, 'UTF-8'); ?>,this)"
+                title="<?php echo h($exclCT); ?>">🚫</button>
             </summary>
             <ul class="products">
               <?php
@@ -920,8 +1090,9 @@ header('Content-Type: text/html; charset=utf-8');
                   $pId   = (string)($p['id'] ?? '');
                   $pPrice= (string)($p['price'] ?? '');
                   $pCur  = (string)($p['currency'] ?? '');
+                  $isExclP = isset($excludedOfferSet[$pId]);
                   ?>
-                  <li class="product">
+                  <li class="product<?php echo $isExclP ? ' excl-item' : ''; ?>">
                     <label class="product-cb-wrap" title="Обрати товар"><input type="checkbox" class="product-cb" data-offer="<?php echo h($pId); ?>"></label>
                     <?php if ($showImages): ?>
                       <?php if ($pPic !== ''): ?>
@@ -945,6 +1116,11 @@ header('Content-Type: text/html; charset=utf-8');
                         <div class="pid">offer#<?php echo h($pId); ?></div>
                       <?php endif; ?>
                       <?php renderOfferMapping($pId, $mapping); ?>
+                      <?php $exclPT = $isExclP ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста'; ?>
+                      <button class="btn-excl excl-btn-offer<?php echo $isExclP ? ' active' : ''; ?>" type="button"
+                        data-offer="<?php echo h($pId); ?>"
+                        onclick="toggleExclude('offer',<?php echo htmlspecialchars(json_encode($pId), ENT_QUOTES, 'UTF-8'); ?>,this)"
+                        title="<?php echo h($exclPT); ?>">🚫</button>
                     </div>
                   </li>
               <?php } ?>
@@ -959,9 +1135,65 @@ header('Content-Type: text/html; charset=utf-8');
     <p>Не знайдено категорій у фіді.</p>
   <?php else: ?>
     <?php foreach ($rootIds as $rid): ?>
-      <?php renderCategory($rid, $categories, $productsByCat, $totals, $mapping, $maxPerCat, $showImages, 0); ?>
+      <?php renderCategory($rid, $categories, $productsByCat, $totals, $mapping, $excludedOfferSet, $excludedCatSet, $maxPerCat, $showImages, 0); ?>
     <?php endforeach; ?>
   <?php endif; ?>
+
+  </div><!-- #view-all -->
+
+  <!-- ===== Excluded items view ===== -->
+  <div id="view-excluded" style="display:none">
+    <?php
+      // Collect excluded category entries
+      $exclCatEntries = [];
+      foreach ($excluded['categories'] ?? [] as $excCatId) {
+          $exclCatEntries[] = [
+              'id'   => (string)$excCatId,
+              'name' => ($categories[$excCatId]['name'] ?? ('categoryId #' . $excCatId)),
+          ];
+      }
+      // Collect excluded offer entries
+      $exclOfferEntries = [];
+      foreach ($excluded['offers'] ?? [] as $excOfferId) {
+          if (isset($productById[$excOfferId])) {
+              $exclOfferEntries[] = $productById[$excOfferId];
+          }
+      }
+    ?>
+    <?php if (empty($exclCatEntries) && empty($exclOfferEntries)): ?>
+      <p class="excl-empty">Жодного виключеного товару або категорії. Натисніть 🚫 у фіді, щоб виключити елементи з Kasta XML.</p>
+    <?php else: ?>
+      <p class="excl-empty" style="display:none">Жодного виключеного товару або категорії. Натисніть 🚫 у фіді, щоб виключити елементи з Kasta XML.</p>
+    <?php endif; ?>
+    <h3 id="excl-cats-h3" <?php echo empty($exclCatEntries) ? 'style="display:none"' : ''; ?>>Виключені категорії (<?php echo count($exclCatEntries); ?>)</h3>
+    <ul id="excl-cats-list" style="list-style:none;padding:0<?php echo empty($exclCatEntries) ? ';display:none' : ''; ?>">
+      <?php foreach ($exclCatEntries as $ec): ?>
+        <li class="excl-item-entry" data-cat-id="<?php echo h($ec['id']); ?>">
+          <span class="excl-name"><?php echo h($ec['name']); ?></span>
+          <span class="excl-sub">#<?php echo h($ec['id']); ?></span>
+          <button class="btn-restore" type="button"
+            onclick="toggleExclude('category',<?php echo htmlspecialchars(json_encode($ec['id']), ENT_QUOTES, 'UTF-8'); ?>,document.querySelector('.excl-btn-cat[data-cat=\'' + CSS.escape(<?php echo json_encode($ec['id']); ?>) + '\']') || this)">
+            🔄 Відновити
+          </button>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <h3 id="excl-offers-h3" <?php echo empty($exclOfferEntries) ? 'style="display:none"' : ''; ?>>Виключені товари (<?php echo count($exclOfferEntries); ?>)</h3>
+    <ul id="excl-offers-list" style="list-style:none;padding:0<?php echo empty($exclOfferEntries) ? ';display:none' : ''; ?>">
+      <?php foreach ($exclOfferEntries as $ep): ?>
+        <?php $epId = (string)($ep['id'] ?? ''); ?>
+        <li class="excl-item-entry" data-offer-id="<?php echo h($epId); ?>">
+          <span class="excl-name"><?php echo h((string)($ep['name'] ?? '')); ?></span>
+          <span class="excl-sub">offer#<?php echo h($epId); ?></span>
+          <button class="btn-restore" type="button"
+            onclick="toggleExclude('offer',<?php echo htmlspecialchars(json_encode($epId), ENT_QUOTES, 'UTF-8'); ?>,document.querySelector('.excl-btn-offer[data-offer=\'' + CSS.escape(<?php echo json_encode($epId); ?>) + '\']') || this)">
+            🔄 Відновити
+          </button>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div><!-- #view-excluded -->
+
 <?php endif; ?>
 
 <!-- ===== Kasta category picker modal ===== -->
@@ -980,6 +1212,11 @@ header('Content-Type: text/html; charset=utf-8');
 <script>
 // Kasta category IDs already used in this feed's mapping (for highlighting)
 var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), JSON_HEX_TAG | JSON_HEX_AMP); ?>);
+// Feed file to use for auto-conversion
+var _autoConvertFile = <?php echo json_encode($autoConvertInput, JSON_HEX_TAG | JSON_HEX_AMP); ?>;
+// Excluded offer / category sets (updated live as user toggles)
+var _excludedOffers = new Set(<?php echo json_encode(array_values($excluded['offers'] ?? []), JSON_HEX_TAG | JSON_HEX_AMP); ?>);
+var _excludedCats   = new Set(<?php echo json_encode(array_values($excluded['categories'] ?? []), JSON_HEX_TAG | JSON_HEX_AMP); ?>);
 
 (function() {
   var _offerId   = null;   // single-product mode
@@ -1156,9 +1393,9 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
       .then(function(data) {
         if (data.ok) {
           _updateRowLabel(offerId, cat);
-          // Mark this category as used for future searches
           _usedCatIds.add(cat.id);
           closeCatPicker();
+          _triggerAutoConvert();
         } else {
           alert('Помилка збереження: ' + (data.error || '?'));
         }
@@ -1178,6 +1415,7 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
           _usedCatIds.add(cat.id);
           closeCatPicker();
           deselectAll();
+          _triggerAutoConvert();
         } else {
           alert('Помилка збереження: ' + (data.error || '?'));
         }
@@ -1186,6 +1424,176 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
   }
 
 }());
+
+// ---- Auto-convert: rebuild kasta.xml after every assignment ----
+function _triggerAutoConvert() {
+  var toast = document.getElementById('convert-toast');
+  toast.textContent = '⏳ Оновлюю kasta.xml…';
+  toast.className = 'toast-loading';
+  var body = new URLSearchParams({action: 'convert_async', input_file: _autoConvertFile});
+  fetch(location.pathname + location.search, {method: 'POST', body: body})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        toast.textContent = '✔ kasta.xml оновлено';
+        toast.className = 'toast-ok';
+      } else {
+        toast.textContent = '⚠ ' + (data.error || 'Помилка конвертації');
+        toast.className = 'toast-err';
+      }
+      setTimeout(function() { toast.textContent = ''; toast.className = ''; }, 4000);
+    })
+    .catch(function() {
+      toast.textContent = '⚠ Мережева помилка';
+      toast.className = 'toast-err';
+      setTimeout(function() { toast.textContent = ''; toast.className = ''; }, 4000);
+    });
+}
+
+// ---- Toggle exclude offer / category from kasta.xml ----
+window.toggleExclude = function(type, id, originBtn) {
+  var body = new URLSearchParams({action: 'toggle_exclude', type: type, id: id});
+  fetch(location.pathname + location.search, {method: 'POST', body: body})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.ok) { alert('Помилка: ' + (data.error || '?')); return; }
+      var nowExcluded = data.excluded;
+
+      if (type === 'offer') {
+        // Toggle all 🚫 buttons for this offer
+        document.querySelectorAll('.excl-btn-offer[data-offer="' + CSS.escape(id) + '"]').forEach(function(b) {
+          b.classList.toggle('active', nowExcluded);
+          b.title = nowExcluded ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста';
+        });
+        // Toggle product row styling
+        document.querySelectorAll('li.product').forEach(function(li) {
+          var cb = li.querySelector('.product-cb[data-offer="' + CSS.escape(id) + '"]');
+          if (cb) li.classList.toggle('excl-item', nowExcluded);
+        });
+        // Update excluded view dynamically
+        if (nowExcluded) {
+          _excludedOffers.add(id);
+          var srcLi = document.querySelector('li.product .product-cb[data-offer="' + CSS.escape(id) + '"]');
+          var pName = id;
+          if (srcLi) {
+            var lnk = srcLi.closest('li.product').querySelector('.plink');
+            if (lnk) pName = lnk.textContent;
+          }
+          _addExclView('offer', id, pName);
+        } else {
+          _excludedOffers.delete(id);
+          _removeExclView('offer', id);
+        }
+      } else {
+        // Category
+        var det = document.querySelector('details.cat[data-cat-id="' + CSS.escape(id) + '"]');
+        if (det) det.classList.toggle('cat-excl', nowExcluded);
+        document.querySelectorAll('.excl-btn-cat[data-cat="' + CSS.escape(id) + '"]').forEach(function(b) {
+          b.classList.toggle('active', nowExcluded);
+          b.title = nowExcluded ? 'Відновити в фіді Каста' : 'Виключити з фіду Каста';
+        });
+        if (nowExcluded) {
+          _excludedCats.add(id);
+          var catName = id;
+          if (det) { var nm = det.querySelector(':scope > summary > .cat-name'); if (nm) catName = nm.textContent; }
+          _addExclView('cat', id, catName);
+        } else {
+          _excludedCats.delete(id);
+          _removeExclView('cat', id);
+        }
+      }
+
+      // Update badge count
+      var badge = document.getElementById('excl-tab-count');
+      if (badge) badge.textContent = data.offer_count + data.cat_count;
+
+      // Check if excluded view empty placeholder needs update
+      _syncExclEmpty();
+
+      // Auto-convert after exclusion change
+      _triggerAutoConvert();
+    })
+    .catch(function() { alert('Мережева помилка'); });
+};
+
+function _addExclView(type, id, name) {
+  var listId = type === 'offer' ? 'excl-offers-list' : 'excl-cats-list';
+  var h3Id   = type === 'offer' ? 'excl-offers-h3'   : 'excl-cats-h3';
+  var list = document.getElementById(listId);
+  if (!list) return;
+  // Check if already exists
+  var existing = list.querySelector('[data-' + (type === 'offer' ? 'offer-id' : 'cat-id') + '="' + CSS.escape(id) + '"]');
+  if (existing) return;
+
+  var li = document.createElement('li');
+  li.className = 'excl-item-entry';
+  if (type === 'offer') li.dataset.offerId = id; else li.dataset.catId = id;
+
+  var nm = document.createElement('span');
+  nm.className = 'excl-name';
+  nm.textContent = name;
+
+  var sub = document.createElement('span');
+  sub.className = 'excl-sub';
+  sub.textContent = (type === 'offer' ? 'offer#' : '#') + id;
+
+  var btn = document.createElement('button');
+  btn.className = 'btn-restore';
+  btn.textContent = '🔄 Відновити';
+  btn.addEventListener('click', function() {
+    window.toggleExclude(type, id, btn);
+  });
+
+  li.appendChild(nm);
+  li.appendChild(sub);
+  li.appendChild(btn);
+  list.appendChild(li);
+  list.style.display = '';
+
+  var h3 = document.getElementById(h3Id);
+  if (h3) {
+    h3.style.display = '';
+    h3.textContent = (type === 'offer' ? 'Виключені товари' : 'Виключені категорії') + ' (' + list.children.length + ')';
+  }
+
+  _syncExclEmpty();
+}
+
+function _removeExclView(type, id) {
+  var listId = type === 'offer' ? 'excl-offers-list' : 'excl-cats-list';
+  var h3Id   = type === 'offer' ? 'excl-offers-h3'   : 'excl-cats-h3';
+  var list = document.getElementById(listId);
+  if (!list) return;
+  var entry = list.querySelector('[data-' + (type === 'offer' ? 'offer-id' : 'cat-id') + '="' + CSS.escape(id) + '"]');
+  if (entry) entry.remove();
+  if (list.children.length === 0) {
+    list.style.display = 'none';
+    var h3 = document.getElementById(h3Id);
+    if (h3) h3.style.display = 'none';
+  } else {
+    var h3 = document.getElementById(h3Id);
+    if (h3) h3.textContent = (type === 'offer' ? 'Виключені товари' : 'Виключені категорії') + ' (' + list.children.length + ')';
+  }
+  _syncExclEmpty();
+}
+
+function _syncExclEmpty() {
+  var exclDiv = document.getElementById('view-excluded');
+  if (!exclDiv) return;
+  var totalItems = _excludedOffers.size + _excludedCats.size;
+  var emptyEl = exclDiv.querySelector('.excl-empty');
+  if (emptyEl) emptyEl.style.display = totalItems === 0 ? '' : 'none';
+}
+
+// ---- View switching (all / excluded) ----
+window.showView = function(name, btn) {
+  var validViews = {all: true, excluded: true};
+  if (!validViews[name]) return;
+  document.getElementById('view-all').style.display      = name === 'all'      ? '' : 'none';
+  document.getElementById('view-excluded').style.display = name === 'excluded' ? '' : 'none';
+  document.querySelectorAll('.view-tab').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+};
 </script>
 
 <script>
@@ -1205,22 +1613,40 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
     document.getElementById(id).focus();
   };
 
+  // Attach event listeners (input covers typing; change+search cover native × button)
+  (function() {
+    var fc = document.getElementById('filter-cat');
+    var fp = document.getElementById('filter-product');
+    if (!fc || !fp) return;
+    ['input', 'change', 'search'].forEach(function(evt) {
+      fc.addEventListener(evt, scheduleFilter);
+      fp.addEventListener(evt, scheduleFilter);
+    });
+  }());
+
   function applyFilters() {
-    var catQ  = document.getElementById('filter-cat').value.trim().toLowerCase();
-    var prodQ = document.getElementById('filter-product').value.trim().toLowerCase();
+    var fcEl = document.getElementById('filter-cat');
+    var fpEl = document.getElementById('filter-product');
+    if (!fcEl || !fpEl) return;
+    var catQ  = fcEl.value.trim().toLowerCase();
+    var prodQ = fpEl.value.trim().toLowerCase();
     var active = catQ !== '' || prodQ !== '';
+
+    // Only filter inside the "all" view
+    var viewAll = document.getElementById('view-all');
+    if (!viewAll || viewAll.style.display === 'none') return;
 
     // ---- Save open state on first activation ----
     if (active && !_savedOpen) {
       _savedOpen = new Map();
-      document.querySelectorAll('details.cat').forEach(function(d) {
+      viewAll.querySelectorAll('details.cat').forEach(function(d) {
         _savedOpen.set(d, d.open);
       });
     }
 
     // ---- Reset visibility ----
-    document.querySelectorAll('li.product').forEach(function(li) { li.classList.remove('filter-hidden'); });
-    document.querySelectorAll('details.cat').forEach(function(d) { d.classList.remove('filter-hidden'); });
+    viewAll.querySelectorAll('li.product').forEach(function(li) { li.classList.remove('filter-hidden'); });
+    viewAll.querySelectorAll('details.cat').forEach(function(d) { d.classList.remove('filter-hidden'); });
 
     if (!active) {
       // Restore saved open states
@@ -1234,7 +1660,7 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
 
     // ---- Filter individual products ----
     if (prodQ) {
-      document.querySelectorAll('li.product').forEach(function(li) {
+      viewAll.querySelectorAll('li.product').forEach(function(li) {
         var link = li.querySelector('.plink');
         var name = link ? link.textContent.toLowerCase() : '';
         if (name.indexOf(prodQ) === -1) li.classList.add('filter-hidden');
@@ -1244,7 +1670,7 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
     // ---- Filter categories (process deepest first so parents see children's state) ----
     // Show a category if: (its name matches AND it has visible content or no product filter)
     //   OR it has a visible child category (parent kept visible by matching descendant)
-    var allCats = document.querySelectorAll('details.cat');
+    var allCats = viewAll.querySelectorAll('details.cat');
     for (var i = allCats.length - 1; i >= 0; i--) {
       var d = allCats[i];
       var nameEl = d.querySelector(':scope > summary > .cat-name');
@@ -1263,8 +1689,8 @@ var _usedCatIds = new Set(<?php echo json_encode(array_keys($usedKastaCatIds), J
     }
 
     // ---- Update result count ----
-    var visProd = document.querySelectorAll('li.product:not(.filter-hidden)').length;
-    var visCat  = document.querySelectorAll('details.cat:not(.filter-hidden)').length;
+    var visProd = viewAll.querySelectorAll('li.product:not(.filter-hidden)').length;
+    var visCat  = viewAll.querySelectorAll('details.cat:not(.filter-hidden)').length;
     document.getElementById('filter-count').textContent =
       visCat + ' кат. / ' + visProd + ' товарів';
   }
