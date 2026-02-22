@@ -866,9 +866,8 @@ header('Content-Type: text/html; charset=utf-8');
     li.product.selected { background:#eef5ff; border-color:#b0c8f0; }
 
     /* ---- Bulk action bar ---- */
-    #bulk-bar { display:none; position:sticky; bottom:16px; left:0; right:0; z-index:500;
-                background:#1a56a0; color:#fff; border-radius:10px; padding:10px 16px;
-                margin:12px 0; box-shadow:0 4px 16px rgba(0,0,0,.25);
+    #bulk-bar { display:none; background:#1a56a0; color:#fff; border-radius:10px; padding:10px 16px;
+                margin:8px 0 0; box-shadow:0 4px 16px rgba(0,0,0,.25);
                 align-items:center; gap:10px; flex-wrap:wrap; }
     #bulk-bar.visible { display:flex; }
     #bulk-count { font-weight:700; font-size:14px; flex:1; }
@@ -894,14 +893,14 @@ header('Content-Type: text/html; charset=utf-8');
     #cat-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:1000; align-items:center; justify-content:center; }
     #cat-modal-box { background:#fff; border-radius:12px; padding:20px; width:min(540px,95vw); max-height:80vh; display:flex; flex-direction:column; box-shadow:0 8px 32px rgba(0,0,0,.25); }
     #cat-modal-box h3 { margin:0 0 12px; font-size:16px; color:#1a56a0; }
-    #cat-modal-name { font-size:13px; color:#555; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    #cat-search { width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #bbc; border-radius:8px; font-size:14px; outline:none; }
+    #cat-modal-name { font-size:15px; color:#555; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    #cat-search { width:100%; box-sizing:border-box; padding:8px 10px; border:1px solid #bbc; border-radius:8px; font-size:16px; outline:none; }
     #cat-search:focus { border-color:#1a56a0; }
     #cat-results { flex:1; overflow-y:auto; margin-top:8px; list-style:none; padding:0; }
     #cat-results li.cat-result-item { padding:8px 10px; border-radius:8px; cursor:pointer; border-bottom:1px solid #f0f0f0; }
     #cat-results li.cat-result-item:hover { background:#f0f6ff; }
-    #cat-results li.cat-result-item strong { font-size:13px; color:#111; }
-    #cat-results li.cat-result-item small { color:#888; font-size:11px; }
+    #cat-results li.cat-result-item strong { font-size:15px; color:#111; }
+    #cat-results li.cat-result-item small { color:#888; font-size:13px; }
     #cat-results li.cat-result-item.used { background:#f0fff4; border-left:3px solid #0a7c3c; padding-left:7px; }
     #cat-results li.cat-result-item.used strong { color:#0a5c2e; }
     .cat-used-badge { display:inline-block; background:#0a7c3c; color:#fff; border-radius:4px; padding:0 5px; font-size:10px; font-weight:700; margin-left:5px; vertical-align:middle; }
@@ -1063,14 +1062,14 @@ header('Content-Type: text/html; charset=utf-8');
     </div>
     <span id="filter-count" class="ls-count"></span>
   </div>
-  </div><!-- /#sticky-header -->
 
-  <!-- ===== Bulk action bar ===== -->
+  <!-- ===== Bulk action bar (inside sticky header — appears below search row when items selected) ===== -->
   <div id="bulk-bar" role="toolbar" aria-label="Масова дія">
     <span id="bulk-count">0 обрано</span>
     <button class="btn-bulk btn-bulk-assign" type="button" onclick="openBulkPicker()">🏷 Призначити категорію</button>
     <button class="btn-bulk btn-bulk-clear"  type="button" onclick="deselectAll()">✕ Скасувати вибір</button>
   </div>
+  </div><!-- /#sticky-header -->
 
   <!-- ===== View tabs ===== -->
   <?php
